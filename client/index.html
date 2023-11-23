@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/svg+xml" href="/vite.svg" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Vite + TS</title>
+	<script type="module" src="/src/main.ts"></script>
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<div class="relative flex min-h-screen w-full flex-1 flex-col items-center">
+		<div
+			class="flex h-full w-full max-w-[428px] items-center justify-center p-6 pt-12 pb-0 xl:absolute xl:top-0 xl:max-w-[min(100vw,1728px)] xl:items-stretch xl:justify-start xl:p-16">
+			<div class="flex w-full flex-col px-4 xl:mr-20 xl:flex-1 xl:px-0">
+				<div class="relative xl:sticky xl:top-16" style="
+							opacity: 1;
+							transform: translate(0px, 0px);
+							transition: opacity 1s cubic-bezier(0.42, 0, 0.25, 1) 0s,
+								transform 1s cubic-bezier(0.2, 1.18, 0.47, 1) 0s;
+						">
+					<div class="relative w-[120px] xl:w-[184px] h-[120px] xl:h-[184px]" style="
+								transform: rotateZ(0deg);
+								transition: transform 1s cubic-bezier(0.2, 1.18, 0.47, 1) 0s;
+							">
+						<div id="imageUploadWrapper" class="relative h-full w-full group">
+							
+							<div id="imageUpload" class=" h-full w-full cursor-pointer rounded-full overflow-hidden">
+								<!-- <div
+								class="absolute inset-0 rounded-full border-2 border-dashed border-black/[0.08] bg-[#FAFAFA] transition-colors duration-200 ease-in-out group-hover/avatar:bg-[#F6F6F6] group-active/avatar:bg-[#F1F1F1]">
+								<div
+									class="typography-title-5 pointer-events-none flex h-full w-full flex-col items-center justify-center rounded-full text-center text-black/60">
+									<svg class="mb-3" width="34" height="34" viewBox="0 0 34 34" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M17 30.2222C9.69757 30.2222 3.77778 24.3024 3.77778 17C3.77778 9.69757 9.69757 3.77778 17 3.77778C24.3024 3.77778 30.2222 9.69757 30.2222 17C30.2222 24.3024 24.3024 30.2222 17 30.2222ZM0 17C0 7.61116 7.61116 0 17 0C26.3888 0 34 7.61116 34 17C34 26.3888 26.3888 34 17 34C7.61116 34 0 26.3888 0 17ZM17 9.44444C17.5316 9.44444 18.0119 9.66402 18.3551 10.0174L24.0023 15.6646C24.74 16.4023 24.74 17.5983 24.0023 18.3359C23.2647 19.0736 22.0687 19.0736 21.331 18.3359L18.8889 15.8938V22.6667C18.8889 23.7099 18.0432 24.5556 17 24.5556C15.9568 24.5556 15.1111 23.7099 15.1111 22.6667V15.8938L12.669 18.3359C11.9313 19.0736 10.7353 19.0736 9.99769 18.3359C9.26003 17.5983 9.26003 16.4023 9.99769 15.6646L15.6449 10.0174C15.9882 9.66402 16.4684 9.44444 17 9.44444Z"
+											fill="black" fill-opacity="0.1"></path>
+									</svg>Add Avatar</div>
+							</div> -->
+
+								<!-- <img id="previewImage"
+									src="https://creatorspace.imgix.net/users/cljdt6wnz036zsv01eaz4t3xe/HsEXbv6E4ErXKDfl-IMG_E8508.JPG?w=300&amp;h=300"
+									class="h-full w-full rounded-full object-cover transition-all duration-200 ease-in-out"
+									alt="" /> -->
+
+								<input id="fileInput" accept="image/png,image/jpeg,image/heic,image/gif,image/webp"
+									type="file" tabindex="-1" style="display: none" />
+							</div>
+
+							<div
+								class="absolute left-3 bottom-3 hidden xl:block group-hover:opacity-100 styles_delete-wrapper__8J1Rq">
+
+								<button id="upload"
+									class="styles_button__sP771 styles_button--variant-white__oYeGd styles_button--size-none__pwYPl styles_button--animation-default__VEMTd styles_button--rounding-full__MBCaE styles_action-button__5F5c2"
+									type="button" style="width: 34px; height: 34px">
+
+									<div class="styles_button__content__z6RqE justify-center">
+
+										<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M9 16C5.13401 16 2 12.866 2 9C2 5.13401 5.13401 2 9 2C12.866 2 16 5.13401 16 9C16 12.866 12.866 16 9 16ZM0 9C0 4.02944 4.02944 0 9 0C13.9706 0 18 4.02944 18 9C18 13.9706 13.9706 18 9 18C4.02944 18 0 13.9706 0 9ZM9 5C9.28141 5 9.53568 5.11624 9.7174 5.30333L12.7071 8.29304C13.0976 8.68357 13.0976 9.31673 12.7071 9.70726C12.3166 10.0978 11.6834 10.0978 11.2929 9.70726L10 8.41436V12C10 12.5523 9.55228 13 9 13C8.44772 13 8 12.5523 8 12V8.41436L6.70711 9.70726C6.31658 10.0978 5.68342 10.0978 5.29289 9.70726C4.90237 9.31673 4.90237 8.68357 5.29289 8.29304L8.2826 5.30333C8.46432 5.11624 8.71859 5 9 5Z"
+												fill="currentColor"></path>
+										</svg>
+									</div>
+
+								</button>
+							</div>
+
+							<div
+								class="absolute right-3 bottom-3 hidden xl:block styles_delete-wrapper__8J1Rq group-hover:opacity-100">
+								<button
+									class="styles_button__sP771 styles_button--variant-white__oYeGd styles_button--size-none__pwYPl styles_button--animation-default__VEMTd styles_button--rounding-full__MBCaE styles_action-button__5F5c2"
+									type="button" style="width: 34px; height: 34px">
+									<div class="styles_button__content__z6RqE justify-center">
+										<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+												fill="currentColor"></path>
+										</svg>
+									</div>
+								</button>
+							</div>
+
+							<div class="absolute -right-1 -bottom-1 xl:hidden styles_delete-wrapper__8J1Rq">
+								<button
+									class="styles_button__sP771 styles_button--variant-white__oYeGd styles_button--size-none__pwYPl styles_button--animation-default__VEMTd styles_button--rounding-full__MBCaE styles_action-button__5F5c2"
+									type="button" style="width: 42px; height: 42px">
+									<div class="styles_button__content__z6RqE justify-center">
+										<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+												fill="currentColor"></path>
+										</svg>
+									</div>
+									<div class="styles_button__loading-spinner__BH0Wf">
+										<svg height="16" width="16" class="styles_container__9hC7b"
+											viewBox="0 0 100 100" preserveAspectRatio="xMidYMid">
+											<g transform="rotate(0 50 50)">
+												<rect x="44" y="0.5" rx="6" ry="6.29" width="12" height="37"
+													fill="currentColor">
+													<animate attributeName="opacity" values="1;0" keyTimes="0;1"
+														dur="0.625s" begin="-0.5208333333333333s"
+														repeatCount="indefinite"></animate>
+												</rect>
+											</g>
+											<g transform="rotate(60 50 50)">
+												<rect x="44" y="0.5" rx="6" ry="6.29" width="12" height="37"
+													fill="currentColor">
+													<animate attributeName="opacity" values="1;0" keyTimes="0;1"
+														dur="0.625s" begin="-0.41666666666666663s"
+														repeatCount="indefinite"></animate>
+												</rect>
+											</g>
+											<g transform="rotate(120 50 50)">
+												<rect x="44" y="0.5" rx="6" ry="6.29" width="12" height="37"
+													fill="currentColor">
+													<animate attributeName="opacity" values="1;0" keyTimes="0;1"
+														dur="0.625s" begin="-0.31249999999999994s"
+														repeatCount="indefinite"></animate>
+												</rect>
+											</g>
+											<g transform="rotate(180 50 50)">
+												<rect x="44" y="0.5" rx="6" ry="6.29" width="12" height="37"
+													fill="currentColor">
+													<animate attributeName="opacity" values="1;0" keyTimes="0;1"
+														dur="0.625s" begin="-0.20833333333333331s"
+														repeatCount="indefinite"></animate>
+												</rect>
+											</g>
+											<g transform="rotate(240 50 50)">
+												<rect x="44" y="0.5" rx="6" ry="6.29" width="12" height="37"
+													fill="currentColor">
+													<animate attributeName="opacity" values="1;0" keyTimes="0;1"
+														dur="0.625s" begin="-0.10416666666666666s"
+														repeatCount="indefinite"></animate>
+												</rect>
+											</g>
+											<g transform="rotate(300 50 50)">
+												<rect x="44" y="0.5" rx="6" ry="6.29" width="12" height="37"
+													fill="currentColor">
+													<animate attributeName="opacity" values="1;0" keyTimes="0;1"
+														dur="0.625s" begin="0s" repeatCount="indefinite"></animate>
+												</rect>
+											</g>
+										</svg>
+									</div>
+									<div class="styles_button__shine__juQJP" style="animation-duration: 4000ms"></div>
+								</button>
+							</div>
+						</div>
+					</div>
+					<div class="ml-2 w-[calc(100%-8px)] max-w-[min(500px,100%-8px)] xl:max-w-[min(500px,calc(100vw_-_1000px))] mt-8"
+						id="profileInfo">
+						<div>
+							<div
+								class="text-[32px] font-bold leading-[120%] tracking-[-1px] xl:text-[44px] xl:tracking-[-2px]">
+								<div>
+									<div contenteditable="true" translate="no" class="ProseMirror rt-editor"
+										tabindex="0">
+										<!-- <p>Tran Nguyen Dang Huy</p> -->
+									</div>
+								</div>
+							</div>
+							<div class="mt-3 text-[#565656] xl:mt-3 xl:text-xl">
+								<!-- <div class="" id="profileInfo">
+									<div contenteditable="true" translate="no" class="ProseMirror" tabindex="0">
+										<p>
+											<br />As a developer and lifelong learner, I'm
+											passionate about coding, reading, and creating valuable
+											digital products. Always eager to contribute my skills
+											while continuously expanding my knowledge.
+										</p>
+										<p>please feel free to reach out via email at</p>
+										<p>vn 👨‍💻: danhuy.work.@gmail.com</p>
+									</div>
+								</div>
+								<div class="mt-4 text-xs font-semibold text-neutral-grey20" style="opacity: 0.842857"
+									id="characterCount">
+									269/280 characters
+								</div> -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="flex h-full w-full max-w-[428px] flex-1 flex-col p-6 pt-0 xl:max-w-[1728px] xl:flex-row xl:p-16 xl:overflow-hidden">
+			<div class="mb-10 flex flex-col px-4 xl:mb-0 xl:mr-20 xl:flex-1 xl:px-0"></div>
+			<div class="relative flex-1 xl:w-[820px] xl:flex-none">
+				<div class="ethan-grid">
+					<div class="SortAnimation flex gap-4 items-center  opacity-100 relative max-w-full">
+						<!-- <div class="BlockLayout w-1/2 h-full">
+							<div
+								class="Block--isDraggable mb-12 relative rounded-lg phantom-border p-6 flex bg-white w-full h-full max-h-[390px]">
+								<div class="absolute inset-0" data-croppable="true" style="
+											transform: translateZ(0px);
+											clip-path: inset(-1px round 8px);
+										">
+									<img src="https://creatorspace.imgix.net/users/cljdt6wnz036zsv01eaz4t3xe/4BkVPrw1vXmGcPcg-Code%2520Ringtones%2520And%2520Wallpapers%2520-%2520Free%2520By%2520Zedge%25E2%2584%25A2.jpg?w=750&amp;h=750"
+										alt="" loading="lazy" data-movable="true" data-offset-x="0" data-offset-y="0"
+										style="
+												position: absolute;
+												top: 50%;
+												left: 50%;
+												transform: translate(
+													calc(-50% + 0px),
+													calc(-50% + 0px)
+												);
+												width: 390px;
+												height: 698.091px;
+												min-width: 101%;
+												min-height: 100%;
+												max-width: unset;
+												max-height: unset;
+											" />
+									<div class="pointer-events-none absolute left-1/2 top-1/2"
+										data-positioning-container="true" style="
+												transform: translate(
+													calc(-50% + 0px),
+													calc(-50% + 0px)
+												);
+												width: 390px;
+												height: 698px;
+											">
+										<canvas class="absolute left-0 top-0" width="390" height="698"
+											style="width: 390px; height: 698px"></canvas>
+									</div>
+								</div>
+
+								<div class="bottom-menu style-menu hidden">
+									<button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M11.8 7H8.2C7.60695 7 7.28244 7.00156 7.04927 7.02061C7.03998 7.02136 7.0312 7.02213 7.0229 7.0229C7.02213 7.0312 7.02136 7.03998 7.02061 7.04927C7.00156 7.28244 7 7.60695 7 8.2V11.8C7 12.3931 7.00156 12.7176 7.02061 12.9507C7.02136 12.96 7.02213 12.9688 7.0229 12.9771C7.0312 12.9779 7.03998 12.9786 7.04927 12.9794C7.28244 12.9984 7.60695 13 8.2 13H11.8C12.3931 13 12.7176 12.9984 12.9507 12.9794C12.96 12.9786 12.9688 12.9779 12.9771 12.9771C12.9779 12.9688 12.9786 12.96 12.9794 12.9507C12.9984 12.7176 13 12.3931 13 11.8V8.2C13 7.60695 12.9984 7.28244 12.9794 7.04927C12.9786 7.03998 12.9779 7.0312 12.9771 7.0229C12.9688 7.02213 12.96 7.02136 12.9507 7.02061C12.7176 7.00156 12.3931 7 11.8 7ZM5.21799 6.09202C5 6.51984 5 7.0799 5 8.2V11.8C5 12.9201 5 13.4802 5.21799 13.908C5.40973 14.2843 5.71569 14.5903 6.09202 14.782C6.51984 15 7.0799 15 8.2 15H11.8C12.9201 15 13.4802 15 13.908 14.782C14.2843 14.5903 14.5903 14.2843 14.782 13.908C15 13.4802 15 12.9201 15 11.8V8.2C15 7.0799 15 6.51984 14.782 6.09202C14.5903 5.71569 14.2843 5.40973 13.908 5.21799C13.4802 5 12.9201 5 11.8 5H8.2C7.0799 5 6.51984 5 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M15.2 7H4.8C3.92692 7 3.39239 7.00156 2.99247 7.03423C2.80617 7.04945 2.69345 7.06857 2.625 7.08469C2.59244 7.09236 2.57241 7.09879 2.56158 7.10265C2.55118 7.10636 2.54681 7.10858 2.54601 7.10899C2.35785 7.20487 2.20487 7.35785 2.10899 7.54601C2.10858 7.54681 2.10636 7.55118 2.10265 7.56158C2.09879 7.57241 2.09236 7.59244 2.08469 7.625C2.06857 7.69345 2.04945 7.80617 2.03423 7.99247C2.00156 8.39239 2 8.92692 2 9.8V10.2C2 11.0731 2.00156 11.6076 2.03423 12.0075C2.04945 12.1938 2.06857 12.3065 2.08469 12.375C2.09236 12.4076 2.09879 12.4276 2.10265 12.4384C2.10636 12.4488 2.10858 12.4532 2.10899 12.454C2.20487 12.6422 2.35785 12.7951 2.54601 12.891C2.54681 12.8914 2.55118 12.8936 2.56158 12.8973C2.57241 12.9012 2.59244 12.9076 2.625 12.9153C2.69345 12.9314 2.80617 12.9505 2.99247 12.9658C3.39239 12.9984 3.92692 13 4.8 13H15.2C16.0731 13 16.6076 12.9984 17.0075 12.9658C17.1938 12.9505 17.3065 12.9314 17.375 12.9153C17.4076 12.9076 17.4276 12.9012 17.4384 12.8973C17.4488 12.8936 17.4532 12.8914 17.454 12.891C17.6422 12.7951 17.7951 12.6422 17.891 12.454C17.8914 12.4532 17.8936 12.4488 17.8973 12.4384C17.9012 12.4276 17.9076 12.4076 17.9153 12.375C17.9314 12.3065 17.9505 12.1938 17.9658 12.0075C17.9984 11.6076 18 11.0731 18 10.2V9.8C18 8.92692 17.9984 8.39239 17.9658 7.99247C17.9505 7.80617 17.9314 7.69345 17.9153 7.625C17.9076 7.59244 17.9012 7.57241 17.8973 7.56158C17.8936 7.55118 17.8914 7.54681 17.891 7.54601C17.7951 7.35785 17.6422 7.20487 17.454 7.10899C17.4532 7.10858 17.4488 7.10636 17.4384 7.10265C17.4276 7.09879 17.4076 7.09236 17.375 7.08469C17.3065 7.06857 17.1938 7.04945 17.0075 7.03423C16.6076 7.00156 16.0731 7 15.2 7ZM0.32698 6.63803C0 7.27976 0 8.11984 0 9.8V10.2C0 11.8802 0 12.7202 0.32698 13.362C0.614601 13.9265 1.07354 14.3854 1.63803 14.673C2.27976 15 3.11984 15 4.8 15H15.2C16.8802 15 17.7202 15 18.362 14.673C18.9265 14.3854 19.3854 13.9265 19.673 13.362C20 12.7202 20 11.8802 20 10.2V9.8C20 8.11984 20 7.27976 19.673 6.63803C19.3854 6.07354 18.9265 5.6146 18.362 5.32698C17.7202 5 16.8802 5 15.2 5H4.8C3.11984 5 2.27976 5 1.63803 5.32698C1.07354 5.6146 0.614601 6.07354 0.32698 6.63803Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M10.2 2H9.8C8.92692 2 8.39239 2.00156 7.99247 2.03423C7.80617 2.04945 7.69345 2.06857 7.625 2.08469C7.59244 2.09236 7.57241 2.09879 7.56158 2.10265C7.55118 2.10636 7.54681 2.10858 7.54601 2.10899C7.35785 2.20487 7.20487 2.35785 7.10899 2.54601C7.10858 2.54681 7.10636 2.55118 7.10265 2.56158C7.09879 2.57241 7.09236 2.59244 7.08469 2.625C7.06857 2.69345 7.04945 2.80617 7.03423 2.99247C7.00156 3.39239 7 3.92692 7 4.8V15.2C7 16.0731 7.00156 16.6076 7.03423 17.0075C7.04945 17.1938 7.06857 17.3065 7.08469 17.375C7.09236 17.4076 7.09879 17.4276 7.10265 17.4384C7.10636 17.4488 7.10858 17.4532 7.10899 17.454C7.20487 17.6422 7.35785 17.7951 7.54601 17.891C7.54681 17.8914 7.55118 17.8936 7.56158 17.8973C7.57241 17.9012 7.59244 17.9076 7.625 17.9153C7.69345 17.9314 7.80617 17.9505 7.99247 17.9658C8.39239 17.9984 8.92692 18 9.8 18H10.2C11.0731 18 11.6076 17.9984 12.0075 17.9658C12.1938 17.9505 12.3065 17.9314 12.375 17.9153C12.4076 17.9076 12.4276 17.9012 12.4384 17.8973C12.4488 17.8936 12.4532 17.8914 12.454 17.891C12.6422 17.7951 12.7951 17.6422 12.891 17.454C12.8914 17.4532 12.8936 17.4488 12.8973 17.4384C12.9012 17.4276 12.9076 17.4076 12.9153 17.375C12.9314 17.3065 12.9505 17.1938 12.9658 17.0075C12.9984 16.6076 13 16.0731 13 15.2V4.8C13 3.92692 12.9984 3.39239 12.9658 2.99247C12.9505 2.80617 12.9314 2.69345 12.9153 2.625C12.9076 2.59244 12.9012 2.57241 12.8973 2.56158C12.8936 2.55118 12.8914 2.54681 12.891 2.54601C12.7951 2.35785 12.6422 2.20487 12.454 2.10899C12.4532 2.10858 12.4488 2.10636 12.4384 2.10265C12.4276 2.09879 12.4076 2.09236 12.375 2.08469C12.3065 2.06857 12.1938 2.04945 12.0075 2.03423C11.6076 2.00156 11.0731 2 10.2 2ZM5.32698 1.63803C5 2.27976 5 3.11984 5 4.8V15.2C5 16.8802 5 17.7202 5.32698 18.362C5.6146 18.9265 6.07354 19.3854 6.63803 19.673C7.27976 20 8.11984 20 9.8 20H10.2C11.8802 20 12.7202 20 13.362 19.673C13.9265 19.3854 14.3854 18.9265 14.673 18.362C15 17.7202 15 16.8802 15 15.2V4.8C15 3.11984 15 2.27976 14.673 1.63803C14.3854 1.07354 13.9265 0.614601 13.362 0.32698C12.7202 0 11.8802 0 10.2 0H9.8C8.11984 0 7.27976 0 6.63803 0.32698C6.07354 0.614601 5.6146 1.07354 5.32698 1.63803Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 bg-white text-black hover:bg-white/+2 active:bg-white/+8">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M13.6 2H6.4C5.24689 2 4.50235 2.00156 3.93567 2.04785C3.39235 2.09225 3.19091 2.1676 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2.1676 3.19091 2.09225 3.39235 2.04785 3.93567C2.00156 4.50235 2 5.24689 2 6.4V13.6C2 14.7531 2.00156 15.4977 2.04785 16.0643C2.09225 16.6077 2.1676 16.8091 2.21799 16.908C2.40973 17.2843 2.71569 17.5903 3.09202 17.782C3.19091 17.8324 3.39235 17.9078 3.93567 17.9521C4.50235 17.9984 5.24689 18 6.4 18H13.6C14.7531 18 15.4977 17.9984 16.0643 17.9521C16.6077 17.9078 16.8091 17.8324 16.908 17.782C17.2843 17.5903 17.5903 17.2843 17.782 16.908C17.8324 16.8091 17.9078 16.6077 17.9521 16.0643C17.9984 15.4977 18 14.7531 18 13.6V6.4C18 5.24689 17.9984 4.50235 17.9521 3.93567C17.9078 3.39235 17.8324 3.19091 17.782 3.09202C17.5903 2.71569 17.2843 2.40973 16.908 2.21799C16.8091 2.1676 16.6077 2.09225 16.0643 2.04785C15.4977 2.00156 14.7531 2 13.6 2ZM0.435974 2.18404C0 3.03969 0 4.15979 0 6.4V13.6C0 15.8402 0 16.9603 0.435974 17.816C0.819467 18.5686 1.43139 19.1805 2.18404 19.564C3.03969 20 4.15979 20 6.4 20H13.6C15.8402 20 16.9603 20 17.816 19.564C18.5686 19.1805 19.1805 18.5686 19.564 17.816C20 16.9603 20 15.8402 20 13.6V6.4C20 4.15979 20 3.03969 19.564 2.18404C19.1805 1.43139 18.5686 0.819467 17.816 0.435974C16.9603 0 15.8402 0 13.6 0H6.4C4.15979 0 3.03969 0 2.18404 0.435974C1.43139 0.819467 0.819467 1.43139 0.435974 2.18404Z"
+												fill="currentColor"></path>
+										</svg>
+									</button>
+									<div class="h-[12px] w-[2px] rounded-full bg-white/[0.18]"></div>
+									<button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path
+												d="M15 1C15 0.447715 14.5523 0 14 0C13.4477 0 13 0.447715 13 1V13H7V15H14C14.5523 15 15 14.5523 15 14V5H17C17.5523 5 18 4.55228 18 4C18 3.44772 17.5523 3 17 3H15V1Z"
+												fill="currentColor"></path>
+											<path
+												d="M3 15V17C3 17.5523 3.44772 18 4 18C4.55228 18 5 17.5523 5 17V5H11V3H4C3.44772 3 3 3.44772 3 4V13H1C0.447715 13 0 13.4477 0 14C0 14.5523 0.447715 15 1 15H3Z"
+												fill="currentColor"></path>
+										</svg></button><button type="button" aria-haspopup="dialog"
+										aria-expanded="false" aria-controls="radix-:rem:" data-state="closed"
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M3.95034 13.8492C5.12191 15.0208 7.02141 15.0208 8.19298 13.8492L9.6072 12.435C9.99772 12.0445 10.6309 12.0445 11.0214 12.435C11.4119 12.8256 11.4119 13.4587 11.0214 13.8492L9.6072 15.2635C7.65457 17.2161 4.48875 17.2161 2.53613 15.2635C0.583506 13.3108 0.583507 10.145 2.53613 8.19239L3.95034 6.77817C4.34087 6.38765 4.97403 6.38765 5.36455 6.77817C5.75508 7.1687 5.75508 7.80186 5.36455 8.19239L3.95034 9.6066C2.77877 10.7782 2.77877 12.6777 3.95034 13.8492ZM12.4356 9.6066L13.8498 8.19239C15.0214 7.02082 15.0214 5.12132 13.8498 3.94975C12.6783 2.77817 10.7788 2.77817 9.6072 3.94975L8.19298 5.36396C7.80246 5.75449 7.16929 5.75449 6.77877 5.36396C6.38824 4.97344 6.38824 4.34027 6.77877 3.94975L8.19298 2.53553C10.1456 0.582913 13.3114 0.582913 15.264 2.53553C17.2167 4.48816 17.2167 7.65398 15.264 9.6066L13.8498 11.0208C13.4593 11.4113 12.8261 11.4113 12.4356 11.0208C12.0451 10.6303 12.0451 9.99713 12.4356 9.6066ZM11.7285 7.48528C12.119 7.09476 12.119 6.46159 11.7285 6.07107C11.338 5.68054 10.7048 5.68054 10.3143 6.07107L6.07166 10.3137C5.68114 10.7042 5.68114 11.3374 6.07166 11.7279C6.46219 12.1184 7.09535 12.1184 7.48588 11.7279L11.7285 7.48528Z"
+												fill="currentColor"></path>
+										</svg>
+									</button>
+								</div>
+
+							</div>
+						</div> -->
+						<div class="BlockLayout w-full h-full">
+							<!-- <div
+								class="Block--isDraggable mb-12 relative rounded-lg phantom-border p-6 flex bg-white w-full h-full max-h-[190px]">
+								<div class="styles_link-widget__WOY8_ styles_link-widget--2x4__ls6Ee">
+									<div class="styles_description__aVbsD">
+										<div class="relative icon">
+											<svg width="16" height="16" class="h-full w-full" viewBox="0 0 40 40"
+												fill="none" xmlns="http://www.w3.org/2000/svg">
+												<rect width="40" height="40" rx="10" fill="#006699"></rect>
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M14.7344 29V15.5053H10.249V29H14.7344ZM12.4917 13.6629C14.0558 13.6629 15.0294 12.6266 15.0294 11.3316C15.0002 10.0075 14.0558 9 12.5214 9C10.9871 9 9.98389 10.0075 9.98389 11.3316C9.98389 12.6266 10.9572 13.6629 12.4625 13.6629H12.4916H12.4917Z"
+													fill="white"></path>
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M17.2163 29H21.7016V21.464C21.7016 21.0607 21.7308 20.6578 21.8492 20.3695C22.1735 19.5636 22.9115 18.7291 24.1506 18.7291C25.7736 18.7291 26.4229 19.9666 26.4229 21.7807V29H30.9078V21.2624C30.9078 17.1174 28.695 15.1887 25.744 15.1887C23.3243 15.1887 22.262 16.5412 21.6718 17.4624H21.7017V15.5053H17.2164C17.2753 16.7716 17.2164 29 17.2164 29H17.2163Z"
+													fill="white"></path>
+											</svg>
+											<div
+												class="pointer-events-none absolute inset-0 rounded-[inherit] phantom-border">
+											</div>
+										</div>
+										<div class="styles_link-meta__container__w2b_G">
+											<div class="styles_container__2GNCj styles_container--floating__mdG_u styles_container--click-to-activate__h_Wxw styles_title-editor__k_ZSJ"
+												data-text-button="true">
+												<div class="styles_fallback__jtZjT styles_title__kGBWE">
+													<div class="text-black">
+														<p>linkedin.com</p>
+													</div>
+												</div>
+											</div>
+											<div class="styles_host__zTVRc">linkedin.com</div>
+										</div>
+									</div>
+									<div class="styles_frame__ymcZM styles_og__Rq6el">
+										<img loading="lazy"
+											src="https://creatorspace.imgix.net/users/cljdt6wnz036zsv01eaz4t3xe/2CwTLQLe1BzTZRpD-peeps-avatar.png?w=750&amp;h=750"
+											alt="" class="h-full w-full rounded-[inherit] object-cover" />
+										<div
+											class="pointer-events-none absolute inset-0 rounded-[inherit] phantom-border">
+										</div>
+										<div class="styles_menu___Mz8b" style="left: -10px; top: -10px; opacity: 0">
+											<div class="styles_image-edit-bar__QWte4">
+												<div class="relative flex">
+													<input class="!pointer-events-none absolute h-0 w-0 opacity-0"
+														type="file"
+														accept="image/png,image/jpeg,image/x-png,image/gif,image/bmp,image/jpeg,image/webp,image/heic" /><button
+														class="styles_button__txv8q">
+														<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+															xmlns="http://www.w3.org/2000/svg">
+															<path fill-rule="evenodd" clip-rule="evenodd"
+																d="M11.6 2H6.4C5.24689 2 4.50235 2.00156 3.93567 2.04785C3.39235 2.09225 3.19091 2.1676 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2.1676 3.19091 2.09225 3.39235 2.04785 3.93567C2.00156 4.50235 2 5.24689 2 6.4V11.2961L4.34151 9.24724C4.70597 8.92834 5.24655 8.91642 5.62471 9.21895L7.4258 10.6598L11.7929 6.29271C12.1673 5.91831 12.7686 5.90064 13.1644 6.25241L16 8.77296V6.4C16 5.24689 15.9984 4.50235 15.9521 3.93567C15.9078 3.39235 15.8324 3.19091 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.8091 2.1676 14.6077 2.09225 14.0643 2.04785C13.4977 2.00156 12.7531 2 11.6 2ZM0.0240504 13.7186C-0.00338973 13.5957 -0.00725765 13.469 0.0119773 13.3454C0 12.8499 0 12.276 0 11.6V6.4C0 4.15979 0 3.03969 0.435974 2.18404C0.819467 1.43139 1.43139 0.819467 2.18404 0.435974C3.03969 0 4.15979 0 6.4 0H11.6C13.8402 0 14.9603 0 15.816 0.435974C16.5686 0.819467 17.1805 1.43139 17.564 2.18404C18 3.03969 18 4.15979 18 6.4V10.9933V11.0071V11.6C18 13.8402 18 14.9603 17.564 15.816C17.1805 16.5686 16.5686 17.1805 15.816 17.564C14.9603 18 13.8402 18 11.6 18H6.4C4.15979 18 3.03969 18 2.18404 17.564C1.43139 17.1805 0.819467 16.5686 0.435974 15.816C0.165964 15.286 0.0631784 14.6547 0.0240504 13.7186ZM16 11.6V11.4489L12.5404 8.37366L8.20712 12.7069C7.84682 13.0672 7.27321 13.099 6.87532 12.7807L5.02876 11.3034L2.03733 13.9209C2.04055 13.97 2.04405 14.0178 2.04785 14.0643C2.09225 14.6077 2.1676 14.8091 2.21799 14.908C2.40973 15.2843 2.71569 15.5903 3.09202 15.782C3.19091 15.8324 3.39235 15.9078 3.93567 15.9521C4.50235 15.9984 5.24689 16 6.4 16H11.6C12.7531 16 13.4977 15.9984 14.0643 15.9521C14.6077 15.9078 14.8091 15.8324 14.908 15.782C15.2843 15.5903 15.5903 15.2843 15.782 14.908C15.8324 14.8091 15.9078 14.6077 15.9521 14.0643C15.9984 13.4977 16 12.7531 16 11.6ZM5.5 7C6.32843 7 7 6.32843 7 5.5C7 4.67157 6.32843 4 5.5 4C4.67157 4 4 4.67157 4 5.5C4 6.32843 4.67157 7 5.5 7Z"
+																fill="currentColor"></path>
+														</svg>
+													</button>
+												</div>
+												<button class="styles_button__txv8q" data-state="closed">
+													<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path fill-rule="evenodd" clip-rule="evenodd"
+															d="M2.18394 0.435873C2.98707 0.0266559 4.0232 0.00154138 5.9999 0V2.00004C5.06969 2.00093 4.43386 2.00704 3.93557 2.04775C3.39224 2.09215 3.19081 2.1675 3.09192 2.21789C2.71559 2.40963 2.40963 2.71559 2.21789 3.09192C2.1675 3.19081 2.09215 3.39224 2.04775 3.93557C2.00704 4.43386 2.00093 5.06969 2.00004 5.9999H0C0.00154138 4.0232 0.0266559 2.98707 0.435873 2.18394C0.819367 1.43129 1.43129 0.819367 2.18394 0.435873ZM11.9999 0V2.00004C12.9301 2.00093 13.5659 2.00704 14.0642 2.04775C14.6076 2.09215 14.809 2.1675 14.9079 2.21789C15.2842 2.40963 15.5902 2.71559 15.7819 3.09192C15.8323 3.19081 15.9077 3.39224 15.952 3.93557C15.9928 4.43386 15.9989 5.06969 15.9998 5.9999H17.9998C17.9983 4.0232 17.9731 2.98707 17.5639 2.18394C17.1804 1.43129 16.5685 0.819367 15.8159 0.435873C15.0127 0.0266559 13.9766 0.00154138 11.9999 0ZM14.0642 15.952C13.5659 15.9928 12.9301 15.9989 11.9999 15.9998V17.9998C13.9766 17.9983 15.0127 17.9731 15.8159 17.5639C16.5685 17.1804 17.1804 16.5685 17.5639 15.8159C17.9731 15.0127 17.9983 13.9766 17.9998 11.9999H15.9998C15.9989 12.9301 15.9928 13.5659 15.952 14.0642C15.9077 14.6076 15.8323 14.809 15.7819 14.9079C15.5902 15.2842 15.2842 15.5902 14.9079 15.7819C14.809 15.8323 14.6076 15.9077 14.0642 15.952ZM2.04775 14.0642C2.00704 13.5659 2.00093 12.9301 2.00004 11.9999H0C0.00154138 13.9766 0.0266559 15.0127 0.435873 15.8159C0.819367 16.5685 1.43129 17.1804 2.18394 17.5639C2.98707 17.9731 4.0232 17.9983 5.9999 17.9998V15.9998C5.06969 15.9989 4.43386 15.9928 3.93557 15.952C3.39224 15.9077 3.19081 15.8323 3.09192 15.7819C2.71559 15.5902 2.40963 15.2842 2.21789 14.9079C2.1675 14.809 2.09215 14.6076 2.04775 14.0642ZM13.2425 10.414C14.8046 8.8519 14.8046 6.31923 13.2425 4.75714C11.6804 3.19504 9.14773 3.19504 7.58564 4.75714C7.19511 5.14766 7.19511 5.78083 7.58564 6.17135C7.97616 6.56188 8.60932 6.56188 8.99985 6.17135C9.7809 5.3903 11.0472 5.3903 11.8283 6.17135C12.6093 6.9524 12.6093 8.21873 11.8283 8.99978C11.4378 9.3903 11.4378 10.0235 11.8283 10.414C12.2188 10.8045 12.852 10.8045 13.2425 10.414ZM8.99985 11.8282C8.2188 12.6093 6.95247 12.6093 6.17142 11.8282C5.39037 11.0472 5.39037 9.78083 6.17142 8.99978C6.56195 8.60925 6.56195 7.97609 6.17142 7.58557C5.7809 7.19504 5.14773 7.19504 4.75721 7.58557C3.19511 9.14766 3.19511 11.6803 4.75721 13.2424C6.31931 14.8045 8.85197 14.8045 10.4141 13.2424C10.8046 12.8519 10.8046 12.2187 10.4141 11.8282C10.0235 11.4377 9.39037 11.4377 8.99985 11.8282ZM8.99985 7.58557C9.39037 7.19504 10.0235 7.19504 10.4141 7.58557C10.8046 7.97609 10.8046 8.60925 10.4141 8.99978L8.99985 10.414C8.60932 10.8045 7.97616 10.8045 7.58564 10.414C7.19511 10.0235 7.19511 9.3903 7.58564 8.99978L8.99985 7.58557Z"
+															fill="currentColor"></path>
+													</svg>
+												</button>
+												<div class="h-3 w-[2px] rounded-full bg-white/[0.18]"></div>
+												<button class="styles_button__txv8q" data-state="closed">
+													<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+														xmlns="http://www.w3.org/2000/svg">
+														<path fill-rule="evenodd" clip-rule="evenodd"
+															d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+															fill="currentColor"></path>
+													</svg>
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div
+									class="absolute -left-1 -top-1 xl:hidden styles_delete-wrapper__8J1Rq widget-delete">
+									<button
+										class="styles_button__sP771 styles_button--variant-white__oYeGd styles_button--size-none__pwYPl styles_button--animation-default__VEMTd styles_button--rounding-full__MBCaE styles_action-button__5F5c2"
+										type="button" style="width: 32px; height: 32px">
+										<div class="styles_button__content__z6RqE justify-center">
+											<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+													fill="currentColor"></path>
+											</svg>
+										</div>
+
+										<div class="styles_button__shine__juQJP" style="animation-duration: 4000ms">
+										</div>
+									</button>
+								</div>
+
+								<div class="bottom-menu style-menu hidden">
+									<button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M11.8 7H8.2C7.60695 7 7.28244 7.00156 7.04927 7.02061C7.03998 7.02136 7.0312 7.02213 7.0229 7.0229C7.02213 7.0312 7.02136 7.03998 7.02061 7.04927C7.00156 7.28244 7 7.60695 7 8.2V11.8C7 12.3931 7.00156 12.7176 7.02061 12.9507C7.02136 12.96 7.02213 12.9688 7.0229 12.9771C7.0312 12.9779 7.03998 12.9786 7.04927 12.9794C7.28244 12.9984 7.60695 13 8.2 13H11.8C12.3931 13 12.7176 12.9984 12.9507 12.9794C12.96 12.9786 12.9688 12.9779 12.9771 12.9771C12.9779 12.9688 12.9786 12.96 12.9794 12.9507C12.9984 12.7176 13 12.3931 13 11.8V8.2C13 7.60695 12.9984 7.28244 12.9794 7.04927C12.9786 7.03998 12.9779 7.0312 12.9771 7.0229C12.9688 7.02213 12.96 7.02136 12.9507 7.02061C12.7176 7.00156 12.3931 7 11.8 7ZM5.21799 6.09202C5 6.51984 5 7.0799 5 8.2V11.8C5 12.9201 5 13.4802 5.21799 13.908C5.40973 14.2843 5.71569 14.5903 6.09202 14.782C6.51984 15 7.0799 15 8.2 15H11.8C12.9201 15 13.4802 15 13.908 14.782C14.2843 14.5903 14.5903 14.2843 14.782 13.908C15 13.4802 15 12.9201 15 11.8V8.2C15 7.0799 15 6.51984 14.782 6.09202C14.5903 5.71569 14.2843 5.40973 13.908 5.21799C13.4802 5 12.9201 5 11.8 5H8.2C7.0799 5 6.51984 5 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M15.2 7H4.8C3.92692 7 3.39239 7.00156 2.99247 7.03423C2.80617 7.04945 2.69345 7.06857 2.625 7.08469C2.59244 7.09236 2.57241 7.09879 2.56158 7.10265C2.55118 7.10636 2.54681 7.10858 2.54601 7.10899C2.35785 7.20487 2.20487 7.35785 2.10899 7.54601C2.10858 7.54681 2.10636 7.55118 2.10265 7.56158C2.09879 7.57241 2.09236 7.59244 2.08469 7.625C2.06857 7.69345 2.04945 7.80617 2.03423 7.99247C2.00156 8.39239 2 8.92692 2 9.8V10.2C2 11.0731 2.00156 11.6076 2.03423 12.0075C2.04945 12.1938 2.06857 12.3065 2.08469 12.375C2.09236 12.4076 2.09879 12.4276 2.10265 12.4384C2.10636 12.4488 2.10858 12.4532 2.10899 12.454C2.20487 12.6422 2.35785 12.7951 2.54601 12.891C2.54681 12.8914 2.55118 12.8936 2.56158 12.8973C2.57241 12.9012 2.59244 12.9076 2.625 12.9153C2.69345 12.9314 2.80617 12.9505 2.99247 12.9658C3.39239 12.9984 3.92692 13 4.8 13H15.2C16.0731 13 16.6076 12.9984 17.0075 12.9658C17.1938 12.9505 17.3065 12.9314 17.375 12.9153C17.4076 12.9076 17.4276 12.9012 17.4384 12.8973C17.4488 12.8936 17.4532 12.8914 17.454 12.891C17.6422 12.7951 17.7951 12.6422 17.891 12.454C17.8914 12.4532 17.8936 12.4488 17.8973 12.4384C17.9012 12.4276 17.9076 12.4076 17.9153 12.375C17.9314 12.3065 17.9505 12.1938 17.9658 12.0075C17.9984 11.6076 18 11.0731 18 10.2V9.8C18 8.92692 17.9984 8.39239 17.9658 7.99247C17.9505 7.80617 17.9314 7.69345 17.9153 7.625C17.9076 7.59244 17.9012 7.57241 17.8973 7.56158C17.8936 7.55118 17.8914 7.54681 17.891 7.54601C17.7951 7.35785 17.6422 7.20487 17.454 7.10899C17.4532 7.10858 17.4488 7.10636 17.4384 7.10265C17.4276 7.09879 17.4076 7.09236 17.375 7.08469C17.3065 7.06857 17.1938 7.04945 17.0075 7.03423C16.6076 7.00156 16.0731 7 15.2 7ZM0.32698 6.63803C0 7.27976 0 8.11984 0 9.8V10.2C0 11.8802 0 12.7202 0.32698 13.362C0.614601 13.9265 1.07354 14.3854 1.63803 14.673C2.27976 15 3.11984 15 4.8 15H15.2C16.8802 15 17.7202 15 18.362 14.673C18.9265 14.3854 19.3854 13.9265 19.673 13.362C20 12.7202 20 11.8802 20 10.2V9.8C20 8.11984 20 7.27976 19.673 6.63803C19.3854 6.07354 18.9265 5.6146 18.362 5.32698C17.7202 5 16.8802 5 15.2 5H4.8C3.11984 5 2.27976 5 1.63803 5.32698C1.07354 5.6146 0.614601 6.07354 0.32698 6.63803Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M10.2 2H9.8C8.92692 2 8.39239 2.00156 7.99247 2.03423C7.80617 2.04945 7.69345 2.06857 7.625 2.08469C7.59244 2.09236 7.57241 2.09879 7.56158 2.10265C7.55118 2.10636 7.54681 2.10858 7.54601 2.10899C7.35785 2.20487 7.20487 2.35785 7.10899 2.54601C7.10858 2.54681 7.10636 2.55118 7.10265 2.56158C7.09879 2.57241 7.09236 2.59244 7.08469 2.625C7.06857 2.69345 7.04945 2.80617 7.03423 2.99247C7.00156 3.39239 7 3.92692 7 4.8V15.2C7 16.0731 7.00156 16.6076 7.03423 17.0075C7.04945 17.1938 7.06857 17.3065 7.08469 17.375C7.09236 17.4076 7.09879 17.4276 7.10265 17.4384C7.10636 17.4488 7.10858 17.4532 7.10899 17.454C7.20487 17.6422 7.35785 17.7951 7.54601 17.891C7.54681 17.8914 7.55118 17.8936 7.56158 17.8973C7.57241 17.9012 7.59244 17.9076 7.625 17.9153C7.69345 17.9314 7.80617 17.9505 7.99247 17.9658C8.39239 17.9984 8.92692 18 9.8 18H10.2C11.0731 18 11.6076 17.9984 12.0075 17.9658C12.1938 17.9505 12.3065 17.9314 12.375 17.9153C12.4076 17.9076 12.4276 17.9012 12.4384 17.8973C12.4488 17.8936 12.4532 17.8914 12.454 17.891C12.6422 17.7951 12.7951 17.6422 12.891 17.454C12.8914 17.4532 12.8936 17.4488 12.8973 17.4384C12.9012 17.4276 12.9076 17.4076 12.9153 17.375C12.9314 17.3065 12.9505 17.1938 12.9658 17.0075C12.9984 16.6076 13 16.0731 13 15.2V4.8C13 3.92692 12.9984 3.39239 12.9658 2.99247C12.9505 2.80617 12.9314 2.69345 12.9153 2.625C12.9076 2.59244 12.9012 2.57241 12.8973 2.56158C12.8936 2.55118 12.8914 2.54681 12.891 2.54601C12.7951 2.35785 12.6422 2.20487 12.454 2.10899C12.4532 2.10858 12.4488 2.10636 12.4384 2.10265C12.4276 2.09879 12.4076 2.09236 12.375 2.08469C12.3065 2.06857 12.1938 2.04945 12.0075 2.03423C11.6076 2.00156 11.0731 2 10.2 2ZM5.32698 1.63803C5 2.27976 5 3.11984 5 4.8V15.2C5 16.8802 5 17.7202 5.32698 18.362C5.6146 18.9265 6.07354 19.3854 6.63803 19.673C7.27976 20 8.11984 20 9.8 20H10.2C11.8802 20 12.7202 20 13.362 19.673C13.9265 19.3854 14.3854 18.9265 14.673 18.362C15 17.7202 15 16.8802 15 15.2V4.8C15 3.11984 15 2.27976 14.673 1.63803C14.3854 1.07354 13.9265 0.614601 13.362 0.32698C12.7202 0 11.8802 0 10.2 0H9.8C8.11984 0 7.27976 0 6.63803 0.32698C6.07354 0.614601 5.6146 1.07354 5.32698 1.63803Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 bg-white text-black hover:bg-white/+2 active:bg-white/+8">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M13.6 2H6.4C5.24689 2 4.50235 2.00156 3.93567 2.04785C3.39235 2.09225 3.19091 2.1676 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2.1676 3.19091 2.09225 3.39235 2.04785 3.93567C2.00156 4.50235 2 5.24689 2 6.4V13.6C2 14.7531 2.00156 15.4977 2.04785 16.0643C2.09225 16.6077 2.1676 16.8091 2.21799 16.908C2.40973 17.2843 2.71569 17.5903 3.09202 17.782C3.19091 17.8324 3.39235 17.9078 3.93567 17.9521C4.50235 17.9984 5.24689 18 6.4 18H13.6C14.7531 18 15.4977 17.9984 16.0643 17.9521C16.6077 17.9078 16.8091 17.8324 16.908 17.782C17.2843 17.5903 17.5903 17.2843 17.782 16.908C17.8324 16.8091 17.9078 16.6077 17.9521 16.0643C17.9984 15.4977 18 14.7531 18 13.6V6.4C18 5.24689 17.9984 4.50235 17.9521 3.93567C17.9078 3.39235 17.8324 3.19091 17.782 3.09202C17.5903 2.71569 17.2843 2.40973 16.908 2.21799C16.8091 2.1676 16.6077 2.09225 16.0643 2.04785C15.4977 2.00156 14.7531 2 13.6 2ZM0.435974 2.18404C0 3.03969 0 4.15979 0 6.4V13.6C0 15.8402 0 16.9603 0.435974 17.816C0.819467 18.5686 1.43139 19.1805 2.18404 19.564C3.03969 20 4.15979 20 6.4 20H13.6C15.8402 20 16.9603 20 17.816 19.564C18.5686 19.1805 19.1805 18.5686 19.564 17.816C20 16.9603 20 15.8402 20 13.6V6.4C20 4.15979 20 3.03969 19.564 2.18404C19.1805 1.43139 18.5686 0.819467 17.816 0.435974C16.9603 0 15.8402 0 13.6 0H6.4C4.15979 0 3.03969 0 2.18404 0.435974C1.43139 0.819467 0.819467 1.43139 0.435974 2.18404Z"
+												fill="currentColor"></path>
+										</svg>
+									</button>
+									<div class="h-[12px] w-[2px] rounded-full bg-white/[0.18]"></div>
+								</div>
+							</div> -->
+							<div
+								class="Block--isDraggable mb-12 relative rounded-lg phantom-border p-6 flex bg-white w-full h-full max-h-[212px]">
+								<div class="styles_link-widget__WOY8_ styles_link-widget--2x4__ls6Ee">
+									<div class="styles_description__aVbsD">
+										<div class="styles_link-meta__container__w2b_G">
+											<div class="styles_container__2GNCj styles_container--floating__mdG_u styles_container--click-to-activate__h_Wxw styles_title-editor__k_ZSJ"
+												data-text-button="true">
+												<div class="styles_fallback__jtZjT styles_title__kGBWE">
+													<div contenteditable="true" translate="no"  tabindex="0"  class="text-black">
+														<h1   class="text-xl font-semibold">Mục tiêu nghề nghiệp</h1>
+													</div>
+												</div>
+											</div>
+											<div  contenteditable="true" translate="no"  tabindex="0" class="text-sm text-black font-medium ProseMirror"><i class='bx bxs-quote-alt-left'></i><p>Mục tiêu của tôi là trở thành một chuyên gia trong lĩnh vực của mình, xây dựng và phát triển kỹ năng để có thể đóng góp tích cực vào môi trường làm việc. Tôi muốn không ngừng học hỏi và phát triển bản thân để có thể đổi mới, tạo ra giá trị và giúp công ty hoặc tổ chức phát triển bền vững. Bằng cách thúc đẩy sự hợp tác và sáng tạo, tôi mong muốn tạo ra các giải pháp tiên tiến và đáp ứng những thách thức nghề nghiệp một cách sáng tạo và hiệu quả.</p><i class=' flex justify-end bx bxs-quote-alt-right' ></i></div>
+										</div>
+									</div>
+								
+								</div>
+								<div
+									class="absolute -left-1 -top-1 xl:hidden styles_delete-wrapper__8J1Rq widget-delete">
+									<button
+										class="styles_button__sP771 styles_button--variant-white__oYeGd styles_button--size-none__pwYPl styles_button--animation-default__VEMTd styles_button--rounding-full__MBCaE styles_action-button__5F5c2"
+										type="button" style="width: 32px; height: 32px">
+										<div class="styles_button__content__z6RqE justify-center">
+											<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+												xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd"
+													d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+													fill="currentColor"></path>
+											</svg>
+										</div>
+
+										<div class="styles_button__shine__juQJP" style="animation-duration: 4000ms">
+										</div>
+									</button>
+								</div>
+
+								<div class="bottom-menu style-menu hidden">
+									<button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M11.8 7H8.2C7.60695 7 7.28244 7.00156 7.04927 7.02061C7.03998 7.02136 7.0312 7.02213 7.0229 7.0229C7.02213 7.0312 7.02136 7.03998 7.02061 7.04927C7.00156 7.28244 7 7.60695 7 8.2V11.8C7 12.3931 7.00156 12.7176 7.02061 12.9507C7.02136 12.96 7.02213 12.9688 7.0229 12.9771C7.0312 12.9779 7.03998 12.9786 7.04927 12.9794C7.28244 12.9984 7.60695 13 8.2 13H11.8C12.3931 13 12.7176 12.9984 12.9507 12.9794C12.96 12.9786 12.9688 12.9779 12.9771 12.9771C12.9779 12.9688 12.9786 12.96 12.9794 12.9507C12.9984 12.7176 13 12.3931 13 11.8V8.2C13 7.60695 12.9984 7.28244 12.9794 7.04927C12.9786 7.03998 12.9779 7.0312 12.9771 7.0229C12.9688 7.02213 12.96 7.02136 12.9507 7.02061C12.7176 7.00156 12.3931 7 11.8 7ZM5.21799 6.09202C5 6.51984 5 7.0799 5 8.2V11.8C5 12.9201 5 13.4802 5.21799 13.908C5.40973 14.2843 5.71569 14.5903 6.09202 14.782C6.51984 15 7.0799 15 8.2 15H11.8C12.9201 15 13.4802 15 13.908 14.782C14.2843 14.5903 14.5903 14.2843 14.782 13.908C15 13.4802 15 12.9201 15 11.8V8.2C15 7.0799 15 6.51984 14.782 6.09202C14.5903 5.71569 14.2843 5.40973 13.908 5.21799C13.4802 5 12.9201 5 11.8 5H8.2C7.0799 5 6.51984 5 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M15.2 7H4.8C3.92692 7 3.39239 7.00156 2.99247 7.03423C2.80617 7.04945 2.69345 7.06857 2.625 7.08469C2.59244 7.09236 2.57241 7.09879 2.56158 7.10265C2.55118 7.10636 2.54681 7.10858 2.54601 7.10899C2.35785 7.20487 2.20487 7.35785 2.10899 7.54601C2.10858 7.54681 2.10636 7.55118 2.10265 7.56158C2.09879 7.57241 2.09236 7.59244 2.08469 7.625C2.06857 7.69345 2.04945 7.80617 2.03423 7.99247C2.00156 8.39239 2 8.92692 2 9.8V10.2C2 11.0731 2.00156 11.6076 2.03423 12.0075C2.04945 12.1938 2.06857 12.3065 2.08469 12.375C2.09236 12.4076 2.09879 12.4276 2.10265 12.4384C2.10636 12.4488 2.10858 12.4532 2.10899 12.454C2.20487 12.6422 2.35785 12.7951 2.54601 12.891C2.54681 12.8914 2.55118 12.8936 2.56158 12.8973C2.57241 12.9012 2.59244 12.9076 2.625 12.9153C2.69345 12.9314 2.80617 12.9505 2.99247 12.9658C3.39239 12.9984 3.92692 13 4.8 13H15.2C16.0731 13 16.6076 12.9984 17.0075 12.9658C17.1938 12.9505 17.3065 12.9314 17.375 12.9153C17.4076 12.9076 17.4276 12.9012 17.4384 12.8973C17.4488 12.8936 17.4532 12.8914 17.454 12.891C17.6422 12.7951 17.7951 12.6422 17.891 12.454C17.8914 12.4532 17.8936 12.4488 17.8973 12.4384C17.9012 12.4276 17.9076 12.4076 17.9153 12.375C17.9314 12.3065 17.9505 12.1938 17.9658 12.0075C17.9984 11.6076 18 11.0731 18 10.2V9.8C18 8.92692 17.9984 8.39239 17.9658 7.99247C17.9505 7.80617 17.9314 7.69345 17.9153 7.625C17.9076 7.59244 17.9012 7.57241 17.8973 7.56158C17.8936 7.55118 17.8914 7.54681 17.891 7.54601C17.7951 7.35785 17.6422 7.20487 17.454 7.10899C17.4532 7.10858 17.4488 7.10636 17.4384 7.10265C17.4276 7.09879 17.4076 7.09236 17.375 7.08469C17.3065 7.06857 17.1938 7.04945 17.0075 7.03423C16.6076 7.00156 16.0731 7 15.2 7ZM0.32698 6.63803C0 7.27976 0 8.11984 0 9.8V10.2C0 11.8802 0 12.7202 0.32698 13.362C0.614601 13.9265 1.07354 14.3854 1.63803 14.673C2.27976 15 3.11984 15 4.8 15H15.2C16.8802 15 17.7202 15 18.362 14.673C18.9265 14.3854 19.3854 13.9265 19.673 13.362C20 12.7202 20 11.8802 20 10.2V9.8C20 8.11984 20 7.27976 19.673 6.63803C19.3854 6.07354 18.9265 5.6146 18.362 5.32698C17.7202 5 16.8802 5 15.2 5H4.8C3.11984 5 2.27976 5 1.63803 5.32698C1.07354 5.6146 0.614601 6.07354 0.32698 6.63803Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M10.2 2H9.8C8.92692 2 8.39239 2.00156 7.99247 2.03423C7.80617 2.04945 7.69345 2.06857 7.625 2.08469C7.59244 2.09236 7.57241 2.09879 7.56158 2.10265C7.55118 2.10636 7.54681 2.10858 7.54601 2.10899C7.35785 2.20487 7.20487 2.35785 7.10899 2.54601C7.10858 2.54681 7.10636 2.55118 7.10265 2.56158C7.09879 2.57241 7.09236 2.59244 7.08469 2.625C7.06857 2.69345 7.04945 2.80617 7.03423 2.99247C7.00156 3.39239 7 3.92692 7 4.8V15.2C7 16.0731 7.00156 16.6076 7.03423 17.0075C7.04945 17.1938 7.06857 17.3065 7.08469 17.375C7.09236 17.4076 7.09879 17.4276 7.10265 17.4384C7.10636 17.4488 7.10858 17.4532 7.10899 17.454C7.20487 17.6422 7.35785 17.7951 7.54601 17.891C7.54681 17.8914 7.55118 17.8936 7.56158 17.8973C7.57241 17.9012 7.59244 17.9076 7.625 17.9153C7.69345 17.9314 7.80617 17.9505 7.99247 17.9658C8.39239 17.9984 8.92692 18 9.8 18H10.2C11.0731 18 11.6076 17.9984 12.0075 17.9658C12.1938 17.9505 12.3065 17.9314 12.375 17.9153C12.4076 17.9076 12.4276 17.9012 12.4384 17.8973C12.4488 17.8936 12.4532 17.8914 12.454 17.891C12.6422 17.7951 12.7951 17.6422 12.891 17.454C12.8914 17.4532 12.8936 17.4488 12.8973 17.4384C12.9012 17.4276 12.9076 17.4076 12.9153 17.375C12.9314 17.3065 12.9505 17.1938 12.9658 17.0075C12.9984 16.6076 13 16.0731 13 15.2V4.8C13 3.92692 12.9984 3.39239 12.9658 2.99247C12.9505 2.80617 12.9314 2.69345 12.9153 2.625C12.9076 2.59244 12.9012 2.57241 12.8973 2.56158C12.8936 2.55118 12.8914 2.54681 12.891 2.54601C12.7951 2.35785 12.6422 2.20487 12.454 2.10899C12.4532 2.10858 12.4488 2.10636 12.4384 2.10265C12.4276 2.09879 12.4076 2.09236 12.375 2.08469C12.3065 2.06857 12.1938 2.04945 12.0075 2.03423C11.6076 2.00156 11.0731 2 10.2 2ZM5.32698 1.63803C5 2.27976 5 3.11984 5 4.8V15.2C5 16.8802 5 17.7202 5.32698 18.362C5.6146 18.9265 6.07354 19.3854 6.63803 19.673C7.27976 20 8.11984 20 9.8 20H10.2C11.8802 20 12.7202 20 13.362 19.673C13.9265 19.3854 14.3854 18.9265 14.673 18.362C15 17.7202 15 16.8802 15 15.2V4.8C15 3.11984 15 2.27976 14.673 1.63803C14.3854 1.07354 13.9265 0.614601 13.362 0.32698C12.7202 0 11.8802 0 10.2 0H9.8C8.11984 0 7.27976 0 6.63803 0.32698C6.07354 0.614601 5.6146 1.07354 5.32698 1.63803Z"
+												fill="currentColor"></path>
+										</svg></button><button
+										class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 bg-white text-black hover:bg-white/+2 active:bg-white/+8">
+										<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M13.6 2H6.4C5.24689 2 4.50235 2.00156 3.93567 2.04785C3.39235 2.09225 3.19091 2.1676 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2.1676 3.19091 2.09225 3.39235 2.04785 3.93567C2.00156 4.50235 2 5.24689 2 6.4V13.6C2 14.7531 2.00156 15.4977 2.04785 16.0643C2.09225 16.6077 2.1676 16.8091 2.21799 16.908C2.40973 17.2843 2.71569 17.5903 3.09202 17.782C3.19091 17.8324 3.39235 17.9078 3.93567 17.9521C4.50235 17.9984 5.24689 18 6.4 18H13.6C14.7531 18 15.4977 17.9984 16.0643 17.9521C16.6077 17.9078 16.8091 17.8324 16.908 17.782C17.2843 17.5903 17.5903 17.2843 17.782 16.908C17.8324 16.8091 17.9078 16.6077 17.9521 16.0643C17.9984 15.4977 18 14.7531 18 13.6V6.4C18 5.24689 17.9984 4.50235 17.9521 3.93567C17.9078 3.39235 17.8324 3.19091 17.782 3.09202C17.5903 2.71569 17.2843 2.40973 16.908 2.21799C16.8091 2.1676 16.6077 2.09225 16.0643 2.04785C15.4977 2.00156 14.7531 2 13.6 2ZM0.435974 2.18404C0 3.03969 0 4.15979 0 6.4V13.6C0 15.8402 0 16.9603 0.435974 17.816C0.819467 18.5686 1.43139 19.1805 2.18404 19.564C3.03969 20 4.15979 20 6.4 20H13.6C15.8402 20 16.9603 20 17.816 19.564C18.5686 19.1805 19.1805 18.5686 19.564 17.816C20 16.9603 20 15.8402 20 13.6V6.4C20 4.15979 20 3.03969 19.564 2.18404C19.1805 1.43139 18.5686 0.819467 17.816 0.435974C16.9603 0 15.8402 0 13.6 0H6.4C4.15979 0 3.03969 0 2.18404 0.435974C1.43139 0.819467 0.819467 1.43139 0.435974 2.18404Z"
+												fill="currentColor"></path>
+										</svg>
+									</button>
+									<div class="h-[12px] w-[2px] rounded-full bg-white/[0.18]"></div>
+								</div>
+							</div>
+
+							<div
+							class="Block--isDraggable mb-12 relative rounded-lg phantom-border p-6 flex bg-white w-full h-[2020px] ">
+							<div class="styles_link-widget__WOY8_ styles_link-widget--2x4__ls6Ee">
+								<div class="styles_description__aVbsD">
+									<div class="styles_link-meta__container__w2b_G">
+										<div class="styles_container__2GNCj styles_container--floating__mdG_u styles_container--click-to-activate__h_Wxw styles_title-editor__k_ZSJ"
+											>
+											<div contenteditable="true" translate="no"  tabindex="0"  class="styles_fallback__jtZjT styles_title__kGBWE">
+												<div class="text-black">
+													<h1 class="text-xl font-semibold">Kinh nghiệm làm việc</h1>
+												</div>
+											</div>
+										</div>
+										<div  contenteditable="true" translate="no"  tabindex="0" class="text-sm text-black font-medium ProseMirror">
+											<ul id="experienceField" class="flex gap-4 my-4 flex-col h-full">
+												<li>
+													<div>
+														<h1 class="text-lg font-semibold">Thực tập sinh tại Công ty TNHH MTV Đầu tư và Phát triển Công nghệ Thành Đạt</h1>
+														<span class="styles_host__zTVRc my-1">Tháng 10/2019 - Tháng 12/2019</span>
+														<p class="styles_description__aVbsD">
+															Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sint similique ratione porro consectetur maxime provident libero, repudiandae, velit, veritatis magni iure ad itaque accusantium. Sapiente, doloribus! Nemo expedita animi temporibus.
+														</p>
+														<div class="styles_frame__ymcZM h-full w-1/2  mx-auto  aspect-[1.4] relative flex min-h-0 flex-col rounded-[10px]">
+															<img loading="lazy"
+																src="https://creatorspace.imgix.net/users/cljdt6wnz036zsv01eaz4t3xe/2CwTLQLe1BzTZRpD-peeps-avatar.png?w=750&amp;h=750"
+																alt="" class="h-full w-full rounded-[inherit] object-cover" />
+															<div
+																class="pointer-events-none absolute inset-0 rounded-[inherit] phantom-border">
+															</div>
+															<div class="styles_menu___Mz8b" style="left: -10px; top: -10px; opacity: 0">
+																<div class="styles_image-edit-bar__QWte4">
+																	<div class="relative flex">
+																		<input class="!pointer-events-none absolute h-0 w-0 opacity-0"
+																			type="file"
+																			accept="image/png,image/jpeg,image/x-png,image/gif,image/bmp,image/jpeg,image/webp,image/heic" /><button
+																			class="styles_button__txv8q">
+																			<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+																				xmlns="http://www.w3.org/2000/svg">
+																				<path fill-rule="evenodd" clip-rule="evenodd"
+																					d="M11.6 2H6.4C5.24689 2 4.50235 2.00156 3.93567 2.04785C3.39235 2.09225 3.19091 2.1676 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2.1676 3.19091 2.09225 3.39235 2.04785 3.93567C2.00156 4.50235 2 5.24689 2 6.4V11.2961L4.34151 9.24724C4.70597 8.92834 5.24655 8.91642 5.62471 9.21895L7.4258 10.6598L11.7929 6.29271C12.1673 5.91831 12.7686 5.90064 13.1644 6.25241L16 8.77296V6.4C16 5.24689 15.9984 4.50235 15.9521 3.93567C15.9078 3.39235 15.8324 3.19091 15.782 3.09202C15.5903 2.71569 15.2843 2.40973 14.908 2.21799C14.8091 2.1676 14.6077 2.09225 14.0643 2.04785C13.4977 2.00156 12.7531 2 11.6 2ZM0.0240504 13.7186C-0.00338973 13.5957 -0.00725765 13.469 0.0119773 13.3454C0 12.8499 0 12.276 0 11.6V6.4C0 4.15979 0 3.03969 0.435974 2.18404C0.819467 1.43139 1.43139 0.819467 2.18404 0.435974C3.03969 0 4.15979 0 6.4 0H11.6C13.8402 0 14.9603 0 15.816 0.435974C16.5686 0.819467 17.1805 1.43139 17.564 2.18404C18 3.03969 18 4.15979 18 6.4V10.9933V11.0071V11.6C18 13.8402 18 14.9603 17.564 15.816C17.1805 16.5686 16.5686 17.1805 15.816 17.564C14.9603 18 13.8402 18 11.6 18H6.4C4.15979 18 3.03969 18 2.18404 17.564C1.43139 17.1805 0.819467 16.5686 0.435974 15.816C0.165964 15.286 0.0631784 14.6547 0.0240504 13.7186ZM16 11.6V11.4489L12.5404 8.37366L8.20712 12.7069C7.84682 13.0672 7.27321 13.099 6.87532 12.7807L5.02876 11.3034L2.03733 13.9209C2.04055 13.97 2.04405 14.0178 2.04785 14.0643C2.09225 14.6077 2.1676 14.8091 2.21799 14.908C2.40973 15.2843 2.71569 15.5903 3.09202 15.782C3.19091 15.8324 3.39235 15.9078 3.93567 15.9521C4.50235 15.9984 5.24689 16 6.4 16H11.6C12.7531 16 13.4977 15.9984 14.0643 15.9521C14.6077 15.9078 14.8091 15.8324 14.908 15.782C15.2843 15.5903 15.5903 15.2843 15.782 14.908C15.8324 14.8091 15.9078 14.6077 15.9521 14.0643C15.9984 13.4977 16 12.7531 16 11.6ZM5.5 7C6.32843 7 7 6.32843 7 5.5C7 4.67157 6.32843 4 5.5 4C4.67157 4 4 4.67157 4 5.5C4 6.32843 4.67157 7 5.5 7Z"
+																					fill="currentColor"></path>
+																			</svg>
+																		</button>
+																	</div>
+																	<button class="styles_button__txv8q" data-state="closed">
+																		<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+																			xmlns="http://www.w3.org/2000/svg">
+																			<path fill-rule="evenodd" clip-rule="evenodd"
+																				d="M2.18394 0.435873C2.98707 0.0266559 4.0232 0.00154138 5.9999 0V2.00004C5.06969 2.00093 4.43386 2.00704 3.93557 2.04775C3.39224 2.09215 3.19081 2.1675 3.09192 2.21789C2.71559 2.40963 2.40963 2.71559 2.21789 3.09192C2.1675 3.19081 2.09215 3.39224 2.04775 3.93557C2.00704 4.43386 2.00093 5.06969 2.00004 5.9999H0C0.00154138 4.0232 0.0266559 2.98707 0.435873 2.18394C0.819367 1.43129 1.43129 0.819367 2.18394 0.435873ZM11.9999 0V2.00004C12.9301 2.00093 13.5659 2.00704 14.0642 2.04775C14.6076 2.09215 14.809 2.1675 14.9079 2.21789C15.2842 2.40963 15.5902 2.71559 15.7819 3.09192C15.8323 3.19081 15.9077 3.39224 15.952 3.93557C15.9928 4.43386 15.9989 5.06969 15.9998 5.9999H17.9998C17.9983 4.0232 17.9731 2.98707 17.5639 2.18394C17.1804 1.43129 16.5685 0.819367 15.8159 0.435873C15.0127 0.0266559 13.9766 0.00154138 11.9999 0ZM14.0642 15.952C13.5659 15.9928 12.9301 15.9989 11.9999 15.9998V17.9998C13.9766 17.9983 15.0127 17.9731 15.8159 17.5639C16.5685 17.1804 17.1804 16.5685 17.5639 15.8159C17.9731 15.0127 17.9983 13.9766 17.9998 11.9999H15.9998C15.9989 12.9301 15.9928 13.5659 15.952 14.0642C15.9077 14.6076 15.8323 14.809 15.7819 14.9079C15.5902 15.2842 15.2842 15.5902 14.9079 15.7819C14.809 15.8323 14.6076 15.9077 14.0642 15.952ZM2.04775 14.0642C2.00704 13.5659 2.00093 12.9301 2.00004 11.9999H0C0.00154138 13.9766 0.0266559 15.0127 0.435873 15.8159C0.819367 16.5685 1.43129 17.1804 2.18394 17.5639C2.98707 17.9731 4.0232 17.9983 5.9999 17.9998V15.9998C5.06969 15.9989 4.43386 15.9928 3.93557 15.952C3.39224 15.9077 3.19081 15.8323 3.09192 15.7819C2.71559 15.5902 2.40963 15.2842 2.21789 14.9079C2.1675 14.809 2.09215 14.6076 2.04775 14.0642ZM13.2425 10.414C14.8046 8.8519 14.8046 6.31923 13.2425 4.75714C11.6804 3.19504 9.14773 3.19504 7.58564 4.75714C7.19511 5.14766 7.19511 5.78083 7.58564 6.17135C7.97616 6.56188 8.60932 6.56188 8.99985 6.17135C9.7809 5.3903 11.0472 5.3903 11.8283 6.17135C12.6093 6.9524 12.6093 8.21873 11.8283 8.99978C11.4378 9.3903 11.4378 10.0235 11.8283 10.414C12.2188 10.8045 12.852 10.8045 13.2425 10.414ZM8.99985 11.8282C8.2188 12.6093 6.95247 12.6093 6.17142 11.8282C5.39037 11.0472 5.39037 9.78083 6.17142 8.99978C6.56195 8.60925 6.56195 7.97609 6.17142 7.58557C5.7809 7.19504 5.14773 7.19504 4.75721 7.58557C3.19511 9.14766 3.19511 11.6803 4.75721 13.2424C6.31931 14.8045 8.85197 14.8045 10.4141 13.2424C10.8046 12.8519 10.8046 12.2187 10.4141 11.8282C10.0235 11.4377 9.39037 11.4377 8.99985 11.8282ZM8.99985 7.58557C9.39037 7.19504 10.0235 7.19504 10.4141 7.58557C10.8046 7.97609 10.8046 8.60925 10.4141 8.99978L8.99985 10.414C8.60932 10.8045 7.97616 10.8045 7.58564 10.414C7.19511 10.0235 7.19511 9.3903 7.58564 8.99978L8.99985 7.58557Z"
+																				fill="currentColor"></path>
+																		</svg>
+																	</button>
+																	<div class="h-3 w-[2px] rounded-full bg-white/[0.18]"></div>
+																	<button class="styles_button__txv8q" data-state="closed">
+																		<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+																			xmlns="http://www.w3.org/2000/svg">
+																			<path fill-rule="evenodd" clip-rule="evenodd"
+																				d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+																				fill="currentColor"></path>
+																		</svg>
+																	</button>
+																</div>
+															</div>
+														</div>
+													</div>
+												</li>
+											</ul>
+											
+										</div>
+									
+									</div>
+										<i  id="addMoreExperience" class='text-black  cursor-pointer text-xl bx bx-add-to-queue' ></i>
+								</div>
+							
+								
+							
+							</div>
+							<div
+								class="absolute -left-1 -top-1 xl:hidden styles_delete-wrapper__8J1Rq widget-delete">
+								<button
+									class="styles_button__sP771 styles_button--variant-white__oYeGd styles_button--size-none__pwYPl styles_button--animation-default__VEMTd styles_button--rounding-full__MBCaE styles_action-button__5F5c2"
+									type="button" style="width: 32px; height: 32px">
+									<div class="styles_button__content__z6RqE justify-center">
+										<svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M6 1C5.44772 1 5 1.44772 5 2C5 2.55228 5.44772 3 6 3H12C12.5523 3 13 2.55228 13 2C13 1.44772 12.5523 1 12 1H6ZM2 4C1.44772 4 1 4.44772 1 5C1 5.55228 1.44772 6 2 6H3V14C3 15.6569 4.34315 17 6 17H12C13.6569 17 15 15.6569 15 14V6H16C16.5523 6 17 5.55228 17 5C17 4.44772 16.5523 4 16 4H2ZM5 14V6H13V14C13 14.5523 12.5523 15 12 15H6C5.44772 15 5 14.5523 5 14Z"
+												fill="currentColor"></path>
+										</svg>
+									</div>
+
+									<div class="styles_button__shine__juQJP" style="animation-duration: 4000ms">
+									</div>
+								</button>
+							</div>
+
+							<div class="bottom-menu style-menu hidden">
+								<button
+									class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+									<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M11.8 7H8.2C7.60695 7 7.28244 7.00156 7.04927 7.02061C7.03998 7.02136 7.0312 7.02213 7.0229 7.0229C7.02213 7.0312 7.02136 7.03998 7.02061 7.04927C7.00156 7.28244 7 7.60695 7 8.2V11.8C7 12.3931 7.00156 12.7176 7.02061 12.9507C7.02136 12.96 7.02213 12.9688 7.0229 12.9771C7.0312 12.9779 7.03998 12.9786 7.04927 12.9794C7.28244 12.9984 7.60695 13 8.2 13H11.8C12.3931 13 12.7176 12.9984 12.9507 12.9794C12.96 12.9786 12.9688 12.9779 12.9771 12.9771C12.9779 12.9688 12.9786 12.96 12.9794 12.9507C12.9984 12.7176 13 12.3931 13 11.8V8.2C13 7.60695 12.9984 7.28244 12.9794 7.04927C12.9786 7.03998 12.9779 7.0312 12.9771 7.0229C12.9688 7.02213 12.96 7.02136 12.9507 7.02061C12.7176 7.00156 12.3931 7 11.8 7ZM5.21799 6.09202C5 6.51984 5 7.0799 5 8.2V11.8C5 12.9201 5 13.4802 5.21799 13.908C5.40973 14.2843 5.71569 14.5903 6.09202 14.782C6.51984 15 7.0799 15 8.2 15H11.8C12.9201 15 13.4802 15 13.908 14.782C14.2843 14.5903 14.5903 14.2843 14.782 13.908C15 13.4802 15 12.9201 15 11.8V8.2C15 7.0799 15 6.51984 14.782 6.09202C14.5903 5.71569 14.2843 5.40973 13.908 5.21799C13.4802 5 12.9201 5 11.8 5H8.2C7.0799 5 6.51984 5 6.09202 5.21799C5.71569 5.40973 5.40973 5.71569 5.21799 6.09202Z"
+											fill="currentColor"></path>
+									</svg></button><button
+									class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+									<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M15.2 7H4.8C3.92692 7 3.39239 7.00156 2.99247 7.03423C2.80617 7.04945 2.69345 7.06857 2.625 7.08469C2.59244 7.09236 2.57241 7.09879 2.56158 7.10265C2.55118 7.10636 2.54681 7.10858 2.54601 7.10899C2.35785 7.20487 2.20487 7.35785 2.10899 7.54601C2.10858 7.54681 2.10636 7.55118 2.10265 7.56158C2.09879 7.57241 2.09236 7.59244 2.08469 7.625C2.06857 7.69345 2.04945 7.80617 2.03423 7.99247C2.00156 8.39239 2 8.92692 2 9.8V10.2C2 11.0731 2.00156 11.6076 2.03423 12.0075C2.04945 12.1938 2.06857 12.3065 2.08469 12.375C2.09236 12.4076 2.09879 12.4276 2.10265 12.4384C2.10636 12.4488 2.10858 12.4532 2.10899 12.454C2.20487 12.6422 2.35785 12.7951 2.54601 12.891C2.54681 12.8914 2.55118 12.8936 2.56158 12.8973C2.57241 12.9012 2.59244 12.9076 2.625 12.9153C2.69345 12.9314 2.80617 12.9505 2.99247 12.9658C3.39239 12.9984 3.92692 13 4.8 13H15.2C16.0731 13 16.6076 12.9984 17.0075 12.9658C17.1938 12.9505 17.3065 12.9314 17.375 12.9153C17.4076 12.9076 17.4276 12.9012 17.4384 12.8973C17.4488 12.8936 17.4532 12.8914 17.454 12.891C17.6422 12.7951 17.7951 12.6422 17.891 12.454C17.8914 12.4532 17.8936 12.4488 17.8973 12.4384C17.9012 12.4276 17.9076 12.4076 17.9153 12.375C17.9314 12.3065 17.9505 12.1938 17.9658 12.0075C17.9984 11.6076 18 11.0731 18 10.2V9.8C18 8.92692 17.9984 8.39239 17.9658 7.99247C17.9505 7.80617 17.9314 7.69345 17.9153 7.625C17.9076 7.59244 17.9012 7.57241 17.8973 7.56158C17.8936 7.55118 17.8914 7.54681 17.891 7.54601C17.7951 7.35785 17.6422 7.20487 17.454 7.10899C17.4532 7.10858 17.4488 7.10636 17.4384 7.10265C17.4276 7.09879 17.4076 7.09236 17.375 7.08469C17.3065 7.06857 17.1938 7.04945 17.0075 7.03423C16.6076 7.00156 16.0731 7 15.2 7ZM0.32698 6.63803C0 7.27976 0 8.11984 0 9.8V10.2C0 11.8802 0 12.7202 0.32698 13.362C0.614601 13.9265 1.07354 14.3854 1.63803 14.673C2.27976 15 3.11984 15 4.8 15H15.2C16.8802 15 17.7202 15 18.362 14.673C18.9265 14.3854 19.3854 13.9265 19.673 13.362C20 12.7202 20 11.8802 20 10.2V9.8C20 8.11984 20 7.27976 19.673 6.63803C19.3854 6.07354 18.9265 5.6146 18.362 5.32698C17.7202 5 16.8802 5 15.2 5H4.8C3.11984 5 2.27976 5 1.63803 5.32698C1.07354 5.6146 0.614601 6.07354 0.32698 6.63803Z"
+											fill="currentColor"></path>
+									</svg></button><button
+									class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 text-white not-disabled:active:!bg-white/30 not-disabled:active:!text-white">
+									<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M10.2 2H9.8C8.92692 2 8.39239 2.00156 7.99247 2.03423C7.80617 2.04945 7.69345 2.06857 7.625 2.08469C7.59244 2.09236 7.57241 2.09879 7.56158 2.10265C7.55118 2.10636 7.54681 2.10858 7.54601 2.10899C7.35785 2.20487 7.20487 2.35785 7.10899 2.54601C7.10858 2.54681 7.10636 2.55118 7.10265 2.56158C7.09879 2.57241 7.09236 2.59244 7.08469 2.625C7.06857 2.69345 7.04945 2.80617 7.03423 2.99247C7.00156 3.39239 7 3.92692 7 4.8V15.2C7 16.0731 7.00156 16.6076 7.03423 17.0075C7.04945 17.1938 7.06857 17.3065 7.08469 17.375C7.09236 17.4076 7.09879 17.4276 7.10265 17.4384C7.10636 17.4488 7.10858 17.4532 7.10899 17.454C7.20487 17.6422 7.35785 17.7951 7.54601 17.891C7.54681 17.8914 7.55118 17.8936 7.56158 17.8973C7.57241 17.9012 7.59244 17.9076 7.625 17.9153C7.69345 17.9314 7.80617 17.9505 7.99247 17.9658C8.39239 17.9984 8.92692 18 9.8 18H10.2C11.0731 18 11.6076 17.9984 12.0075 17.9658C12.1938 17.9505 12.3065 17.9314 12.375 17.9153C12.4076 17.9076 12.4276 17.9012 12.4384 17.8973C12.4488 17.8936 12.4532 17.8914 12.454 17.891C12.6422 17.7951 12.7951 17.6422 12.891 17.454C12.8914 17.4532 12.8936 17.4488 12.8973 17.4384C12.9012 17.4276 12.9076 17.4076 12.9153 17.375C12.9314 17.3065 12.9505 17.1938 12.9658 17.0075C12.9984 16.6076 13 16.0731 13 15.2V4.8C13 3.92692 12.9984 3.39239 12.9658 2.99247C12.9505 2.80617 12.9314 2.69345 12.9153 2.625C12.9076 2.59244 12.9012 2.57241 12.8973 2.56158C12.8936 2.55118 12.8914 2.54681 12.891 2.54601C12.7951 2.35785 12.6422 2.20487 12.454 2.10899C12.4532 2.10858 12.4488 2.10636 12.4384 2.10265C12.4276 2.09879 12.4076 2.09236 12.375 2.08469C12.3065 2.06857 12.1938 2.04945 12.0075 2.03423C11.6076 2.00156 11.0731 2 10.2 2ZM5.32698 1.63803C5 2.27976 5 3.11984 5 4.8V15.2C5 16.8802 5 17.7202 5.32698 18.362C5.6146 18.9265 6.07354 19.3854 6.63803 19.673C7.27976 20 8.11984 20 9.8 20H10.2C11.8802 20 12.7202 20 13.362 19.673C13.9265 19.3854 14.3854 18.9265 14.673 18.362C15 17.7202 15 16.8802 15 15.2V4.8C15 3.11984 15 2.27976 14.673 1.63803C14.3854 1.07354 13.9265 0.614601 13.362 0.32698C12.7202 0 11.8802 0 10.2 0H9.8C8.11984 0 7.27976 0 6.63803 0.32698C6.07354 0.614601 5.6146 1.07354 5.32698 1.63803Z"
+											fill="currentColor"></path>
+									</svg></button><button
+									class="style-button rounded-[4px] outline-none disabled:text-white/40 not-disabled:active:scale-90 bg-white text-black hover:bg-white/+2 active:bg-white/+8">
+									<svg width="18" height="18" viewBox="0 0 20 20" fill="none"
+										xmlns="http://www.w3.org/2000/svg">
+										<path fill-rule="evenodd" clip-rule="evenodd"
+											d="M13.6 2H6.4C5.24689 2 4.50235 2.00156 3.93567 2.04785C3.39235 2.09225 3.19091 2.1676 3.09202 2.21799C2.71569 2.40973 2.40973 2.71569 2.21799 3.09202C2.1676 3.19091 2.09225 3.39235 2.04785 3.93567C2.00156 4.50235 2 5.24689 2 6.4V13.6C2 14.7531 2.00156 15.4977 2.04785 16.0643C2.09225 16.6077 2.1676 16.8091 2.21799 16.908C2.40973 17.2843 2.71569 17.5903 3.09202 17.782C3.19091 17.8324 3.39235 17.9078 3.93567 17.9521C4.50235 17.9984 5.24689 18 6.4 18H13.6C14.7531 18 15.4977 17.9984 16.0643 17.9521C16.6077 17.9078 16.8091 17.8324 16.908 17.782C17.2843 17.5903 17.5903 17.2843 17.782 16.908C17.8324 16.8091 17.9078 16.6077 17.9521 16.0643C17.9984 15.4977 18 14.7531 18 13.6V6.4C18 5.24689 17.9984 4.50235 17.9521 3.93567C17.9078 3.39235 17.8324 3.19091 17.782 3.09202C17.5903 2.71569 17.2843 2.40973 16.908 2.21799C16.8091 2.1676 16.6077 2.09225 16.0643 2.04785C15.4977 2.00156 14.7531 2 13.6 2ZM0.435974 2.18404C0 3.03969 0 4.15979 0 6.4V13.6C0 15.8402 0 16.9603 0.435974 17.816C0.819467 18.5686 1.43139 19.1805 2.18404 19.564C3.03969 20 4.15979 20 6.4 20H13.6C15.8402 20 16.9603 20 17.816 19.564C18.5686 19.1805 19.1805 18.5686 19.564 17.816C20 16.9603 20 15.8402 20 13.6V6.4C20 4.15979 20 3.03969 19.564 2.18404C19.1805 1.43139 18.5686 0.819467 17.816 0.435974C16.9603 0 15.8402 0 13.6 0H6.4C4.15979 0 3.03969 0 2.18404 0.435974C1.43139 0.819467 0.819467 1.43139 0.435974 2.18404Z"
+											fill="currentColor"></path>
+									</svg>
+								</button>
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="styles_floating-bar__UHlNW" data-bento-menu="true">
+				<button
+					class="styles_button__sP771 styles_button--variant-success__tItRl styles_button--size-default__mqBeT styles_button--animation-default__VEMTd styles_button--rounding-default__2HK46 h-[33px] w-[127px] !rounded-[6px] !p-0 !shadow-[0px_2px_3px_rgba(0,0,0,0.06)]"
+					type="button" data-state="closed">
+					<div class="styles_button__content__z6RqE justify-center">
+						Save my
+					</div>
+
+					<div class="styles_button__shine__juQJP styles_button__shine--active__05LPg"
+						style="animation-duration: 4000ms"></div>
+				</button>
+				<div class="styles_divider__3_u0k"></div>
+				<div class="flex items-center space-x-1">
+					<button
+						class="styles_button__sP771  styles_button--size-default__mqBeT styles_button--animation-default__VEMTd styles_button--rounding-default__2HK46 h-[33px] w-[127px] !rounded-[6px] !p-0 !shadow-[0px_2px_3px_rgba(0,0,0,0.06)]"
+						type="button" data-state="closed">
+						<div class="styles_button__content__z6RqE text-black/60 justify-center items-center">
+							<i class='bx bxs-file-image bx-fw '></i>Custom 1
+						</div>
+
+						<div class="styles_button__shine__juQJP styles_button__shine--active__05LPg"
+							style="animation-duration: 4000ms"></div>
+					</button>
+
+
+
+				</div>
+			</div>
+
+
+			<div id="authentication-modal" aria-hidden="true"
+				class="hidden overflow-x-hidden overflow-y-auto fixed h-modal md:h-full top-4 left-0 right-0 md:inset-0 z-50 justify-center items-center bg-gray-900/80 ">
+				<div class="relative w-full max-w-md px-4 h-full md:h-auto">
+					<!-- Modal content -->
+					<div class="bg-white rounded-lg shadow relative dark:bg-gray-700">
+						<div class="flex justify-end p-2">
+							<button type="button"
+								class="toggleModal text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white">
+								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+									xmlns="http://www.w3.org/2000/svg">
+									<path fill-rule="evenodd"
+										d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+										clip-rule="evenodd"></path>
+								</svg>
+							</button>
+						</div>
+
+						<form class="space-y-6 px-6 lg:px-8 pb-4 sm:pb-6 xl:pb-8">
+							<h3 class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</h3>
+							<div>
+								<label for="email"
+									class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Your
+									email</label>
+								<input type="email" name="email" id="email"
+									class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+									placeholder="name@company.com" required="">
+							</div>
+							<div>
+								<label for="password" required
+									class="text-sm font-medium text-gray-900 block mb-2 dark:text-gray-300">Your
+									password</label>
+								<input type="password" name="password" id="password" placeholder="••••••••"
+									class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+									required="">
+							</div>
+							<!-- <div class="flex justify-between">
+								<div class="flex items-start">
+									<div class="flex items-center h-5">
+										<input id="remember" aria-describedby="remember" type="checkbox"
+											class="bg-gray-50 border border-gray-300 focus:ring-3 focus:ring-blue-300 h-4 w-4 rounded dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800"
+											required="">
+									</div>
+									<div class="text-sm ml-3">
+										<label for="remember"
+											class="font-medium text-gray-900 dark:text-gray-300">Remember me</label>
+									</div>
+								</div>
+								<a href="#" class="text-sm text-blue-700 hover:underline dark:text-blue-500">Lost
+									Password?</a>
+							</div> -->
+							<button type="button" id="signinButton"
+								class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Login
+								to your account</button>
+							<div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+								Not registered? <a href="#"
+									class="text-blue-700 hover:underline dark:text-blue-500">Create account</a>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="fixed left-16 bottom-[52px] -m-1 hidden items-center space-x-1 rounded-[12px] p-1 transition-colors xl:flex 2xl:space-x-2 duration-400 bg-white delay-500"
+				style="opacity: 1;" id="isLoggedCheck">
+				<div class="relative">
+					<!-- <button type="button" 
+						
+						class="!mr-0 rounded-full  p-2  text-[#8E8E8E] outline-none transition-all hover:bg-[#F6F6F6] focus-visible:bg-[#F6F6F6] active:scale-[0.86] flex justify-center  items-center gap-4 data-[state=open]:bg-[#F6F6F6] data-[state=open]:text-black"
+						style="transition: transform 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s, color 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s; ;"><svg
+							width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<rect x="1" y="3" width="15" height="2" rx="1" fill="currentColor"></rect>
+							<rect y="11" width="15" height="2" rx="1" fill="currentColor"></rect>
+							<circle cx="10" cy="4" r="2" fill="white" stroke="currentColor" stroke-width="2"></circle>
+							<circle cx="6" cy="12" r="2" fill="white" stroke="currentColor" stroke-width="2"></circle>
+						</svg>Log out</button></div>
+						</button> -->
+
+					<button type="button"
+						class="toggleModal !mr-0 rounded-full  p-2  text-[#8E8E8E] outline-none transition-all hover:bg-[#F6F6F6] focus-visible:bg-[#F6F6F6] active:scale-[0.86] flex justify-center  items-center gap-4 data-[state=open]:bg-[#F6F6F6] data-[state=open]:text-black"
+						style="transition: transform 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s, color 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s; ;"><svg
+							width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<circle cx="8" cy="8" r="6" stroke="#8E8E8E" stroke-width="2"></circle>
+							<path
+								d="M6.22695 6.84827L5.68089 9.57858C5.59287 10.0187 5.98088 10.4067 6.42096 10.3187L9.15128 9.7726C9.4625 9.71035 9.70577 9.46708 9.76801 9.15587L10.3141 6.42555C10.4021 5.98546 10.0141 5.59746 9.574 5.68547L6.84368 6.23154C6.53246 6.29378 6.28919 6.53705 6.22695 6.84827Z"
+								fill="#8E8E8E"></path>
+						</svg>Sign in</button>
+
+
+				</div>
+			</div>
+			<div id="snackbar"></div>
+</body>
+
+</html>
