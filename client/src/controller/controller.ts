@@ -3,6 +3,7 @@ import '@shopify/draggable';
 import { Plugins, Sortable } from '@shopify/draggable';
 import axios from 'axios';
 import { countCharactersInDescription, showToast } from '../helper/usage';
+import { attacthTinymce } from '../helper/tinymce';
 
 
 
@@ -205,6 +206,8 @@ export const addHandler = () => {
             experienceField.appendChild(newExperience);
         }
     });
+
+    attacthTinymce();
 
 }
 
