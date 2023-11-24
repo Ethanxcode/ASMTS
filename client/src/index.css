@@ -762,7 +762,7 @@ button {
 	margin-top: 0;
 	line-height: 40px;
 }
-.demo-inline ul,
+/* .demo-inline ul,
 .demo-inline ol {
 	padding-left: 20px;
 }
@@ -771,7 +771,7 @@ button {
 }
 .demo-inline ol {
 	list-style: decimal;
-}
+} */
 .demo-inline a {
 	text-decoration: underline;
 }
