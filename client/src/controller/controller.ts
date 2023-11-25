@@ -108,7 +108,6 @@ export const addHandler = () => {
             .get('https://nrfjf9-8080.csb.app/users')
             .then((response) => {
                 const users = response.data;
-                console.log(users);
                 const user = users.find(
                     (u) => u.email === email && u.password === password,
                 );
@@ -122,6 +121,7 @@ export const addHandler = () => {
             .then((result) => {
                 if (result) {
                     window.location.href = `/${result?.username}`;
+
                 } else {
                     showToast(`Invalid username or password`, 'error');
                 }
@@ -201,7 +201,7 @@ export const addHandler = () => {
 
     addMoreExperience?.addEventListener('click', () => {
         if (experienceField) {
-            const newExperience = document.createElement('li');
+            const newExperience = document.createElement('div');
             newExperience.innerHTML = createExperienceField();
             experienceField.appendChild(newExperience);
         }

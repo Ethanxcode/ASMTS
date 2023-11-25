@@ -4,7 +4,7 @@ import viteLogo from './vite.svg';
 import tippy from 'tippy.js';
 import { setupCounter } from './counter.ts';
 
-import { getData } from './controller/database.ts';
+import { getAllData, getData, getDetailData } from './controller/database.ts';
 import { countCharactersInDescription, showToast } from './helper/usage.ts';
 import axios from 'axios';
 import 'tippy.js/dist/svg-arrow.css';
@@ -25,7 +25,10 @@ tippy('[data-tippy-content]', {
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const data = await getData();
+    const currentUser = await getData();
+
+    console.log(currentUser)
+    const data = await getDetailData(currentUser?.id);
     renderData(data);
     addHandler();
     handleFileUpload();

@@ -21,6 +21,7 @@
 	--widget-color-hover: #f0f7fd;
 	--widget-color-active: #e9f4fc;
 	--sort-anim-block-name: unquote('Block');
+	--color-blue: #1d9bf0
 
 	--widget-color: #007ebb;
 	--widget-color-bg: #f0f6f9;
@@ -315,7 +316,6 @@ button:focus-visible {
 [type='submit'],
 button {
 	-webkit-appearance: button;
-	background-color: transparent;
 	background-image: none;
 }
 
@@ -722,7 +722,7 @@ button {
 	}
 }
 
-.demo-inline {
+/* .demo-inline {
 	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 	text-align: left;
 	color: #626262;
@@ -738,30 +738,11 @@ button {
 	margin: -20px -20px 0 -20px;
 	padding: 20px;
 }
-.demo-inline p {
+p {
 	margin: 0 0;
+
 }
-.demo-inline h1 {
-	color: #1976d2;
-	text-align: center;
-	font-size: 2em;
-	font-weight: bold;
-	margin: 0 0;
-}
-.demo-inline h2 {
-	color: #1976d2;
-	font-size: 2em;
-	margin-bottom: 0;
-	margin-top: 0;
-	line-height: 40px;
-}
-.demo-inline h3 {
-	font-size: 1.5em;
-	color: #403f42;
-	margin-bottom: 0;
-	margin-top: 0;
-	line-height: 40px;
-}
+ */
 /* .demo-inline ul,
 .demo-inline ol {
 	padding-left: 20px;
@@ -772,7 +753,7 @@ button {
 .demo-inline ol {
 	list-style: decimal;
 } */
-.demo-inline a {
+/* .demo-inline a {
 	text-decoration: underline;
 }
 .demo-inline img {
@@ -780,11 +761,42 @@ button {
 	margin-left: auto;
 	margin-right: auto;
 	padding: 0px 10px 10px 10px;
+} */
+.tinymce-edit p ,.tinymce-create p {
+	font-size: 0.875rem;
+    line-height: 1.25rem;
+	--tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+	font-weight: 500;
+} 
+
+.tinymce-create h1, .tinymce-edit h1 {
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 2.5rem;
+
+	--tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+	margin: 0 0;
 }
-.demo-inline textarea {
-	display: none;
+.tinymce-create h2, .tinymce-edit h2 {
+	--tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+	font-size: 1.5rem;
+	margin-bottom: 0;
+	margin-top: 0;
+	line-height: 2rem;
 }
-.demo-inline *[contentEditable='true']:focus,
-.demo-inline *[contentEditable='true']:hover {
+.tinymce-create h3, .tinymce-edit h3{
+	font-size: 1.125rem;
+	--tw-text-opacity: 1;
+    color: rgb(0 0 0 / var(--tw-text-opacity));
+	margin-bottom: 0;
+	margin-top: 0;
+	line-height: 1.75rem;
+}
+
+ *[contentEditable='true']:focus,
+ *[contentEditable='true']:hover {
 	outline: 2px dashed #1976d262;
 }

@@ -1,38 +1,86 @@
 import axios, { AxiosResponse } from 'axios';
 
 // Define the type of your data
+interface Language {
+    Lan: string;
+    description: string;
+}
+
+interface SocialMedia {
+    linkedin: string;
+    facebook: string;
+}
+
+interface Property {
+    profileInfo: {
+        html: string;
+    };
+}
+
+interface WorkExperience {
+    title: string;
+    company: string;
+    from: string;
+    to: string;
+    description: string;
+    image: string;
+}
+
+interface Photo {
+    id: string;
+    image: string;
+    createdAt: string;
+    updatedAt: string;
+}
+
 interface userDataType {
     id: string;
     name: string;
     username: string;
     email: string;
     password: string;
+    phoneNumber: string;
+    address: string;
+    skills: string[];
+    language: Language[];
     description: string;
     location: string;
-    photo: {
-        id: string;
-        image: string;
-        createdAt: string;
-        updatedAt: string;
-    };
-    property?: {
-    }[];
+    title: string;
+    photo: Photo;
+    CareerGoals: string;
+    socialMedia: SocialMedia[];
+    property: Property[];
+    education: any[];
+    workExperience: WorkExperience[];
+    certificates: any[];
+    awards: any[];
+    createAt: string;
+    updatedAt: string;
 }
 
 
-
-// const url = 'https://nrfjf9-8080.csb.app/users/user-fasdlkfs'
+const url = 'https://nrfjf9-8080.csb.app/users'
 
 // // // Function to retrieve all data
-// export async function getAllData(): Promise<YourDataType[]> {
-//     try {
-//         const response: AxiosResponse<YourDataType[]> = await axios.get(`${url}`);
-//         return response.data;
-//     } catch (error) {
-//         // Handle error
-//         throw new Error('Failed to fetch data');
-//     }
-// }
+export async function getAllData(): Promise<userDataType[]> {
+    try {
+        const response: AxiosResponse<userDataType[]> = await axios.get(`${url}`);
+        return response.data;
+    } catch (error) {
+        // Handle error
+        throw new Error('Failed to fetch data');
+    }
+}
+
+export async function getDetailData(id: string): Promise<userDataType[]> {
+    try {
+        const response: AxiosResponse<userDataType[]> = await axios.get(`${url}/${id}`);
+        return response.data;
+    } catch (error) {
+        throw new Error('Failed to fetch data');
+    }
+}
+
 
 export async function getData(): Promise<userDataType[]> {
     const data = localStorage.getItem('user');
