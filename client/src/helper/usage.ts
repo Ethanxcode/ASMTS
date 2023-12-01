@@ -33,3 +33,15 @@ export function showToast(message: string, type: SnackbarType) {
     }, 3000);
 }
 
+
+export function getParam() {
+    const path = window.location.pathname;
+    const pathSegments = path.split('/');
+
+    const param = pathSegments[pathSegments.length - 1];
+
+    return param;
+}
+
+
+

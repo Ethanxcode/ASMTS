@@ -1,4 +1,3 @@
-import { SocialMedia, requriedDataToRender } from '../helper/types/views';
 import { countCharactersInDescription } from '../helper/usage';
 import { isLoggedCheckBool } from './database';
 
@@ -13,10 +12,24 @@ const countChars = () => {
   });
 };
 
+interface SocialMedia {
+  platform: string;
+  site: string;
+  username: string;
+}
 
-
-
-export const renderData = (data: requriedDataToRender) => {
+export const renderData = (data: {
+  name?: string;
+  description?: string;
+  email?: string;
+  photo?: { image: string; id: string };
+  socialMedia?: SocialMedia[];
+  workExperience?: any[];
+}) => {
+  const name = data?.name || '';
+  const description =
+    data?.description ||
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 
   const profileInfo = document.querySelector<HTMLDivElement>('#profileInfo')!;
   const isLogged = document.querySelector<HTMLDivElement>('#isLoggedCheck')!;
@@ -41,16 +54,24 @@ export const renderData = (data: requriedDataToRender) => {
           <button type="button" id="logoutButton"
             class="!mr-0 rounded-full p-2 text-[#8E8E8E] outline-none transition-all hover:bg-[#F6F6F6] focus-visible:bg-[#F6F6F6] active:scale-[0.86] flex justify-center items-center gap-4 data-[state=open]:bg-[#F6F6F6] data-[state=open]:text-black"
             style="transition: transform 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s, color 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s;">
-            <i class='bx bx-log-out  text-xl' ></i>Log out
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="6" stroke="#8E8E8E" stroke-width="2"></circle>
+              <path d="M6.22695 6.84827L5.68089 9.57858C5.59287 10.0187 5.98088 10.4067 6.42096 10.3187L9.15128 9.7726C9.4625 9.71035 9.70577 9.46708 9.76801 9.15587L10.3141 6.42555C10.4021 5.98546 10.0141 5.59746 9.574 5.68547L6.84368 6.23154C6.53246 6.29378 6.28919 6.53705 6.22695 6.84827Z" fill="#8E8E8E"></path>
+            </svg>Log out
           </button>
         </div>
+        <button type="button" id="editableButton"
+          class="!mr-0 rounded-full p-2 text-[#8E8E8E] outline-none transition-all hover:bg-[#F6F6F6] focus-visible:bg-[#F6F6F6] active:scale-[0.86] flex justify-center items-center gap-4 data-[state=open]:bg-[#F6F6F6] data-[state=open]:text-black"
+          style="transition: transform 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s, color 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s;">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="1" y="3" width="15" height="2" rx="1" fill="currentColor"></rect>
+            <rect y="11" width="15" height="2" rx="1" fill="currentColor"></rect>
+            <circle cx="10" cy="4" r="2" fill="white" stroke="currentColor" stroke-width="2"></circle>
+            <circle cx="6" cy="12" r="2" fill="white" stroke="currentColor" stroke-width="2"></circle>
+          </svg>Edit
+        </button>
       `;
     }
-    //   <button type="button" id="editableButton"
-    //   class="!mr-0 rounded-full p-2 text-[#8E8E8E] outline-none transition-all hover:bg-[#F6F6F6] focus-visible:bg-[#F6F6F6] active:scale-[0.86] flex justify-center items-center gap-4 data-[state=open]:bg-[#F6F6F6] data-[state=open]:text-black"
-    //   style="transition: transform 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s, color 100ms cubic-bezier(0.427, 0.073, 0.105, 0.997) 0s;">
-    //   <i class='bx bxs-edit  text-xl' ></i>Edit
-    // </button>
   } else {
     if (imageUploadWrapper) {
       imageUploadWrapper.classList.toggle('group');
@@ -73,10 +94,13 @@ export const renderData = (data: requriedDataToRender) => {
     }
 
     if (isLogged) {
-      isLogged.innerHTML = `1
+      isLogged.innerHTML = `
         <div class="relative">
           <button type="button" class="toggleModal !mr-0 rounded-full p-2 text-[#8E8E8E] outline-none transition-all hover:bg-[#F6F6F6] focus-visible:bg-[#F6F6F6] active:scale-[0.86] flex justify-center items-center gap-4 data-[state=open]:bg-[#F6F6F6] data-[state=open]:text-black">
-          <i class='bx bx-log-in  text-xl' ></i>Sign in
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="8" cy="8" r="6" stroke="#8E8E8E" stroke-width="2"></circle>
+              <path d="M6.22695 6.84827L5.68089 9.57858C5.59287 10.0187 5.98088 10.4067 6.42096 10.3187L9.15128 9.7726C9.4625 9.71035 9.70577 9.46708 9.76801 9.15587L10.3141 6.42555C10.4021 5.98546 10.0141 5.59746 9.574 5.68547L6.84368 6.23154C6.53246 6.29378 6.28919 6.53705 6.22695 6.84827Z" fill="#8E8E8E"></path>
+            </svg>Sign in
           </button>
         </div>`;
     }
@@ -87,12 +111,12 @@ export const renderData = (data: requriedDataToRender) => {
       <div class="text-[32px] text-black font-bold leading-[120%] tracking-[-1px] xl:text-[44px] xl:tracking-[-2px]">
         <div>
           <div class="tinymce-normal-no-size">
-            <p>${data?.name ? data?.name : `<i class='bx bxs-quote-alt-left mr-3'></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}</p>
+            <p>${name ? name : `<i class='bx bxs-quote-alt-left'></i>`}</p>
           </div>
         </div>
       </div>
       <div class="mt-3 text-[#565656] xl:mt-3 xl:text-xl tinymce-normal-no-size">
-        ${data?.description ? data?.description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
+        ${description ? description : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.'}
       </div>
       <div class="mt-3 xl:mt-6 xl:text-xl">
         <div id="socialMediaField" class="flex gap-4 flex-col"></div>
@@ -134,4 +158,3 @@ export const renderData = (data: requriedDataToRender) => {
     });
   }
 };
-

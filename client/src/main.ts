@@ -4,13 +4,13 @@ import viteLogo from './vite.svg';
 import tippy from 'tippy.js';
 import { setupCounter } from './counter.ts';
 
-import { getAllData, getData, getDetailData } from './controller/database.ts';
-import { countCharactersInDescription, showToast } from './helper/usage.ts';
+import { getAllData, getData, getDetailData, isLoggedCheckBool } from './controller/database.ts';
+import { countCharactersInDescription, getParam, showToast } from './helper/usage.ts';
 import axios from 'axios';
 import 'tippy.js/dist/svg-arrow.css';
 import 'tippy.js/themes/light.css';
 import 'boxicons';
-import { addHandler } from './controller/controller.ts';
+import { addHandler, addSignInHandler } from './controller/controller.ts';
 import { renderData } from './controller/views.ts';
 
 const url = 'https://nrfjf9-8080.csb.app/users/user-fasdlkfs';
@@ -25,13 +25,23 @@ tippy('[data-tippy-content]', {
 
 document.addEventListener('DOMContentLoaded', async () => {
   try {
-    const currentUser = await getData();
+    const id = getParam();
+    if (id) {
+      const currentUser = await getDetailData(id);
+      renderData(currentUser);
+      addHandler();
+      if (currentUser && isLoggedCheckBool()) {
+        addHandler()
+      }
+      else {
+        addSignInHandler()
+      }
+      handleFileUpload();
+    }
+    else {
 
-    console.log(currentUser)
-    const data = await getDetailData(currentUser?.id);
-    renderData(data);
-    addHandler();
-    handleFileUpload();
+    }
+
   } catch (error) {
     console.error('Error:', error);
   }

@@ -796,7 +796,7 @@ p {
 	line-height: 1.75rem;
 }
 
- *[contentEditable='true']:focus,
+ /* *[contentEditable='true']:focus,
  *[contentEditable='true']:hover {
 	outline: 2px dashed #1976d262;
-}
+} */

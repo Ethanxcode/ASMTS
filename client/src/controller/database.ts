@@ -1,68 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
-
-// Define the type of your data
-interface Language {
-    Lan: string;
-    description: string;
-}
-
-interface SocialMedia {
-    linkedin: string;
-    facebook: string;
-}
-
-interface Property {
-    profileInfo: {
-        html: string;
-    };
-}
-
-interface WorkExperience {
-    title: string;
-    company: string;
-    from: string;
-    to: string;
-    description: string;
-    image: string;
-}
-
-interface Photo {
-    id: string;
-    image: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
-interface userDataType {
-    id: string;
-    name: string;
-    username: string;
-    email: string;
-    password: string;
-    phoneNumber: string;
-    address: string;
-    skills: string[];
-    language: Language[];
-    description: string;
-    location: string;
-    title: string;
-    photo: Photo;
-    CareerGoals: string;
-    socialMedia: SocialMedia[];
-    property: Property[];
-    education: any[];
-    workExperience: WorkExperience[];
-    certificates: any[];
-    awards: any[];
-    createAt: string;
-    updatedAt: string;
-}
+import { userDataType } from '../helper/types/database';
 
 
-const url = 'https://nrfjf9-8080.csb.app/users'
+const url = 'https://rjsw24-8080.csb.app/users'
 
 // // // Function to retrieve all data
-export async function getAllData(): Promise<userDataType[]> {
+export async function getAllData(id: string): Promise<userDataType[]> {
     try {
         const response: AxiosResponse<userDataType[]> = await axios.get(`${url}`);
         return response.data;
@@ -88,6 +31,11 @@ export async function getData(): Promise<userDataType[]> {
 
 }
 
+
+export function isLoggedCheckBool(): boolean {
+    const data = localStorage.getItem('user');
+    return data ? true : false;
+}
 
 // // Function to create new data
 // export async function createData(newData: YourDataType): Promise<YourDataType> {
